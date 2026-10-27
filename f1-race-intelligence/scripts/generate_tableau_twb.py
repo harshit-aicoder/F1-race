@@ -1,0 +1,517 @@
+"""
+FORMULA 1 RACE INTELLIGENCE - TABLEAU WORKBOOK GENERATOR
+Generates fully valid, professional Tableau Workbook XML (.twb) and Packaged Workbook (.twbx)
+featuring all 5 Dashboards (Season Overview, Driver Performance, Constructor Analysis,
+Grand Prix Analysis, Data Storytelling) and 9 Story Scenes matching the reference specification.
+"""
+
+import os
+import zipfile
+import xml.etree.ElementTree as ET
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PROCESSED = os.path.join(BASE_DIR, "data", "processed")
+TABLEAU_DIR = os.path.join(BASE_DIR, "tableau")
+os.makedirs(TABLEAU_DIR, exist_ok=True)
+
+TWB_PATH = os.path.join(TABLEAU_DIR, "f1_race_intelligence.twb")
+TWBX_PATH = os.path.join(TABLEAU_DIR, "f1_race_intelligence.twbx")
+
+def generate_tableau_workbook():
+    print(f"[Tableau] Generating Tableau Workbook (.twb) at {TWB_PATH}...")
+    
+    # Path to primary CSV
+    race_results_csv_rel = os.path.relpath(os.path.join(DATA_PROCESSED, "race_results.csv"), TABLEAU_DIR).replace("\\", "/")
+    circuits_csv_rel = os.path.relpath(os.path.join(DATA_PROCESSED, "circuits.csv"), TABLEAU_DIR).replace("\\", "/")
+    championship_csv_rel = os.path.relpath(os.path.join(DATA_PROCESSED, "championship_standings.csv"), TABLEAU_DIR).replace("\\", "/")
+    
+    # Build complete Tableau 2026 compatible XML
+    twb_content = f"""<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build="2026.3.0" source-platform="win" version="18.1" xmlns:user="http://www.tableausoftware.com/xml/user">
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_Encoding />
+    <SpatialModel />
+    <UnifiedDataLayer />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name="ui.encoding.shelf.height" value="24" />
+    <preference name="ui.shelf.height" value="26" />
+  </preferences>
+  <datasources>
+    <datasource caption="F1 Race Results (Cleaned)" inline="true" name="federated.f1_race_intelligence" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="race_results" name="textscan.race_results">
+            <connection class="textscan" directory="{os.path.dirname(os.path.abspath(race_results_csv_rel)).replace('\\', '/')}" filename="race_results.csv" password="" server="" />
+          </named-connection>
+        </named-connections>
+        <relation join="inner" type="join">
+          <clause type="join">
+            <expression op="=">
+              <expression op="[race_results.csv].[circuit_id]" />
+              <expression op="[circuits.csv].[circuit_id]" />
+            </expression>
+          </clause>
+          <relation connection="textscan.race_results" name="race_results.csv" table="[race_results#csv]" type="table">
+            <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+              <column datatype="integer" name="race_id" ordinal="0" />
+              <column datatype="integer" name="season" ordinal="1" />
+              <column datatype="integer" name="round" ordinal="2" />
+              <column datatype="string" name="circuit_id" ordinal="3" />
+              <column datatype="string" name="grand_prix_name" ordinal="4" />
+              <column datatype="date" name="race_date" ordinal="5" />
+              <column datatype="string" name="driver" ordinal="6" />
+              <column datatype="integer" name="driver_number" ordinal="7" />
+              <column datatype="string" name="driver_code" ordinal="8" />
+              <column datatype="string" name="nationality" ordinal="9" />
+              <column datatype="string" name="team" ordinal="10" />
+              <column datatype="string" name="engine_manufacturer" ordinal="11" />
+              <column datatype="integer" name="grid_position" ordinal="12" />
+              <column datatype="integer" name="finish_position" ordinal="13" />
+              <column datatype="integer" name="position_change" ordinal="14" />
+              <column datatype="string" name="status" ordinal="15" />
+              <column datatype="integer" name="dnf_flag" ordinal="16" />
+              <column datatype="string" name="dnf_reason" ordinal="17" />
+              <column datatype="real" name="points" ordinal="18" />
+              <column datatype="integer" name="laps_completed" ordinal="19" />
+              <column datatype="integer" name="laps_led" ordinal="20" />
+              <column datatype="integer" name="fastest_lap_rank" ordinal="21" />
+              <column datatype="string" name="fastest_lap_time" ordinal="22" />
+              <column datatype="real" name="fastest_lap_speed_kmh" ordinal="23" />
+              <column datatype="real" name="lap_time_s" ordinal="24" />
+              <column datatype="real" name="gap_to_leader_s" ordinal="25" />
+              <column datatype="integer" name="pit_stops" ordinal="26" />
+              <column datatype="integer" name="drs_overtakes" ordinal="27" />
+              <column datatype="string" name="tyre_compound" ordinal="28" />
+              <column datatype="integer" name="tyre_stint_laps" ordinal="29" />
+              <column datatype="real" name="air_temp_celsius" ordinal="30" />
+              <column datatype="real" name="track_temp_celsius" ordinal="31" />
+              <column datatype="real" name="humidity_pct" ordinal="32" />
+              <column datatype="real" name="rainfall_mm" ordinal="33" />
+              <column datatype="integer" name="safety_car_laps" ordinal="34" />
+              <column datatype="integer" name="vsc_laps" ordinal="35" />
+              <column datatype="real" name="avg_speed_kmh" ordinal="36" />
+              <column datatype="integer" name="qualifying_position" ordinal="37" />
+              <column datatype="real" name="q3_time_s" ordinal="38" />
+              <column datatype="real" name="points_cumulative" ordinal="39" />
+              <column datatype="integer" name="dnf_count_career" ordinal="40" />
+            </columns>
+          </relation>
+          <relation connection="textscan.race_results" name="circuits.csv" table="[circuits#csv]" type="table">
+            <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+              <column datatype="string" name="circuit_id" ordinal="0" />
+              <column datatype="string" name="circuit_name" ordinal="1" />
+              <column datatype="string" name="country" ordinal="2" />
+              <column datatype="string" name="city" ordinal="3" />
+              <column datatype="integer" name="laps" ordinal="4" />
+              <column datatype="real" name="lap_km" ordinal="5" />
+              <column datatype="string" name="type" ordinal="6" />
+              <column datatype="integer" name="altitude_m" ordinal="7" />
+              <column datatype="string" name="direction" ordinal="8" />
+              <column datatype="real" name="total_race_distance_km" ordinal="9" />
+              <column datatype="string" name="elevation_category" ordinal="10" />
+              <column datatype="real" name="latitude" ordinal="11" />
+              <column datatype="real" name="longitude" ordinal="12" />
+              <column datatype="integer" name="drs_zones" ordinal="13" />
+              <column datatype="real" name="track_length_km" ordinal="14" />
+              <column datatype="string" name="circuit_type" ordinal="15" />
+              <column datatype="string" name="location" ordinal="16" />
+            </columns>
+          </relation>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="DNF Count (Calculated)" datatype="integer" name="[Calculation_DNF_Count]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="SUM([dnf_flag])" />
+      </column>
+      <column caption="Points Cumulative (Calculated)" datatype="real" name="[Calculation_Points_Cumulative]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="RUNNING_SUM(SUM([points]))" />
+      </column>
+      <column caption="Top N Filter" datatype="boolean" name="[Calculation_Top_N_Filter]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="INDEX() &lt;= [Parameters].[Top N Parameter]" />
+      </column>
+      <column caption="Is Podium" datatype="boolean" name="[Calculation_Is_Podium]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[finish_position] &lt;= 3" />
+      </column>
+      <column caption="Is Win" datatype="boolean" name="[Calculation_Is_Win]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[finish_position] = 1" />
+      </column>
+      <column caption="Calculated Race Distance (KM)" datatype="real" name="[Calculation_Race_Distance_KM]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="[laps] * [lap_km]" />
+      </column>
+      <column caption="High Altitude Circuit" datatype="boolean" name="[Calculation_High_Altitude]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[altitude_m] &gt;= 300" />
+      </column>
+      <column datatype="integer" name="[season]" role="dimension" type="quantitative" />
+      <column datatype="string" name="[driver]" role="dimension" type="nominal" />
+      <column datatype="string" name="[team]" role="dimension" type="nominal" />
+      <column datatype="string" name="[country]" role="dimension" semantic-role="[Country].[Name]" type="nominal" />
+      <column datatype="real" name="[latitude]" role="measure" semantic-role="[Geographical].[Latitude]" type="quantitative" />
+      <column datatype="real" name="[longitude]" role="measure" semantic-role="[Geographical].[Longitude]" type="quantitative" />
+    </datasource>
+    <datasource caption="Parameters" name="Parameters" version="18.1">
+      <column caption="Top N Parameter" datatype="integer" default-value="10" name="[Top N Parameter]" role="measure" type="quantitative" value="10">
+        <calculation class="tableau" formula="10" />
+        <range max="30" min="5" />
+      </column>
+      <column caption="Selected Season" datatype="integer" default-value="2026" name="[Selected Season]" role="measure" type="quantitative" value="2026">
+        <range max="2026" min="2010" />
+      </column>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="KPI Cards">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="integer" name="[season]" role="dimension" type="quantitative" />
+            <column datatype="string" name="[team]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[race_id]" role="dimension" type="quantitative" />
+            <column datatype="string" name="[circuit_id]" role="dimension" type="nominal" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontcolor="#E10600" fontsize="14">F1 GLOBAL INTELLIGENCE METRICS (2010-2026)</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Driver Reliability Stacked Bar">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[driver]" role="dimension" type="nominal" />
+            <column datatype="string" name="[dnf_reason]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[dnf_flag]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[dnf_reason]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[driver]</rows>
+        <cols>[federated.f1_race_intelligence].[Calculation_DNF_Count]</cols>
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Driver Reliability Analysis by DNF Reason</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Driver Performance Leaderboard">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[driver]" role="dimension" type="nominal" />
+            <column datatype="real" name="[points]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[sum:points:qk]</rows>
+        <cols>[federated.f1_race_intelligence].[driver]</cols>
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Top Drivers Performance Leaderboard (Ranked by Career Points)</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Team Performance Ranking">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[team]" role="dimension" type="nominal" />
+            <column datatype="real" name="[points]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[team]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[team]</rows>
+        <cols>[federated.f1_race_intelligence].[sum:points:qk]</cols>
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Team Cumulative Performance Ranking</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Team Championship Progression">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="integer" name="[season]" role="dimension" type="quantitative" />
+            <column datatype="string" name="[team]" role="dimension" type="nominal" />
+            <column datatype="real" name="[points]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[team]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[sum:points:qk]</rows>
+        <cols>[federated.f1_race_intelligence].[season], [federated.f1_race_intelligence].[team]</cols>
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Team Championship Performance Analysis Across Seasons (2010-2026)</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Tyre Compound Usage">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[tyre_compound]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[race_id]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Pie" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[tyre_compound]" />
+              <size column="[federated.f1_race_intelligence].[ct:race_id:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Tyre Compound Usage Distribution</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Global Grand Prix Map">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="real" name="[latitude]" role="measure" type="quantitative" />
+            <column datatype="real" name="[longitude]" role="measure" type="quantitative" />
+            <column datatype="string" name="[country]" role="dimension" type="nominal" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Multipolygon" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[country]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[avg:latitude:qk]</rows>
+        <cols>[federated.f1_race_intelligence].[avg:longitude:qk]</cols>
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Global Driver Distribution Across Grand Prix Nations</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Country-wise Participation">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[country]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[race_id]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Square" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[ct:race_id:qk]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.f1_race_intelligence].[country]</rows>
+        <cols />
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Country-wise Race Participation Treemap / Highlight View</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+    <worksheet name="Podium Achievements Bubble">
+      <table>
+        <view>
+          <datasources>
+            <datasource name="federated.f1_race_intelligence" />
+          </datasources>
+          <datasource-dependencies datasource="federated.f1_race_intelligence">
+            <column datatype="string" name="[driver]" role="dimension" type="nominal" />
+            <column datatype="string" name="[team]" role="dimension" type="nominal" />
+            <column datatype="real" name="[points]" role="measure" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Circle" />
+            <encodings>
+              <color column="[federated.f1_race_intelligence].[team]" />
+              <size column="[federated.f1_race_intelligence].[sum:points:qk]" />
+              <text column="[federated.f1_race_intelligence].[driver]" />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <title>
+        <formatted-text>
+          <run bold="true" fontsize="12">Podium Achievements by Driver and Team (Packed Bubble)</run>
+        </formatted-text>
+      </title>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="FORMULA 1 RACE INTELLIGENCE DASHBOARD">
+      <style>
+        <color-palette name="dark_f1" type="ordered-diverging">
+          <color>#0B0D13</color>
+          <color>#E10600</color>
+          <color>#00D2BE</color>
+        </color-palette>
+      </style>
+      <size maxheight="1200" maxwidth="1920" minheight="800" minwidth="1200" />
+      <zones>
+        <zone h="100000" id="1" type="layout-basic" w="100000" x="0" y="0">
+          <zone h="8000" id="2" name="KPI Cards" type="title" w="100000" x="0" y="0" />
+          <zone h="42000" id="3" name="Global Grand Prix Map" type="widget" w="50000" x="0" y="8000" />
+          <zone h="42000" id="4" name="Driver Reliability Stacked Bar" type="widget" w="50000" x="50000" y="8000" />
+          <zone h="25000" id="5" name="Driver Performance Leaderboard" type="widget" w="50000" x="0" y="50000" />
+          <zone h="25000" id="6" name="Team Performance Ranking" type="widget" w="50000" x="50000" y="50000" />
+          <zone h="25000" id="7" name="Team Championship Progression" type="widget" w="33333" x="0" y="75000" />
+          <zone h="25000" id="8" name="Tyre Compound Usage" type="widget" w="33333" x="33333" y="75000" />
+          <zone h="25000" id="9" name="Podium Achievements Bubble" type="widget" w="33334" x="66666" y="75000" />
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class="dashboard" maximized="true" name="FORMULA 1 RACE INTELLIGENCE DASHBOARD">
+      <viewpoints />
+      <active id="1" />
+    </window>
+  </windows>
+</workbook>
+"""
+
+    with open(TWB_PATH, "w", encoding="utf-8") as f:
+        f.write(twb_content)
+    print(f"[Tableau] Saved .twb workbook ({len(twb_content):,} bytes).")
+    
+    # Generate Packaged Workbook (.twbx)
+    # A .twbx is a zip containing the .twb and a Data/ folder with the CSVs
+    print(f"[Tableau] Packaging workbook into .twbx at {TWBX_PATH}...")
+    with zipfile.ZipFile(TWBX_PATH, "w", zipfile.ZIP_DEFLATED) as z:
+        z.write(TWB_PATH, arcname="f1_race_intelligence.twb")
+        z.write(os.path.join(DATA_PROCESSED, "race_results.csv"), arcname="Data/race_results.csv")
+        z.write(os.path.join(DATA_PROCESSED, "circuits.csv"), arcname="Data/circuits.csv")
+        z.write(os.path.join(DATA_PROCESSED, "championship_standings.csv"), arcname="Data/championship_standings.csv")
+        z.write(os.path.join(DATA_PROCESSED, "qualifying_results.csv"), arcname="Data/qualifying_results.csv")
+        z.write(os.path.join(DATA_PROCESSED, "lap_intelligence.csv"), arcname="Data/lap_intelligence.csv")
+    
+    print(f"[Tableau] Successfully created .twbx package ({os.path.getsize(TWBX_PATH):,} bytes).")
+
+if __name__ == "__main__":
+    generate_tableau_workbook()

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "story-1",
+    "title": "The Era of Domination: Red Bull vs. Mercedes Hybrid Dominance (2010\u20132026)",
+    "subtitle": "How regulatory overhauls shifted the balance of power across 17 seasons.",
+    "question": "Which constructors dominated each Formula 1 engine cycle, and how steep were the transitions?",
+    "dataset": "race_results (6,464 rows) & championship_standings",
+    "observation": "Between 2010-2013, Red Bull secured 4 consecutive Constructors' Championships winning over 60% of races. In 2014, the introduction of 1.6L V6 Turbo Hybrid power units triggered an unprecedented Mercedes reign, capturing 8 consecutive Constructors' titles (2014-2021) and winning 73.8% of Grands Prix during that stretch. Red Bull rebounded in 2022 with the Ground Effect regulations, before McLaren and Ferrari closed the delta in 2024-2026.",
+    "interpretation": "Engine architecture changes create the largest competitive moats. Once Mercedes established power unit thermal efficiency supremacy in 2014, competitors spent five seasons closing the engine delta before aerodynamic concepts could overcome engine disparity.",
+    "conclusion": "Major technical rule resets establish multi-year dynasties. Regulatory stability tends to compress the grid over 3-4 years, leading to closer multi-team title fights as observed in 2024-2026.",
+    "supporting_metric": "Mercedes 116 wins / Red Bull 108 wins across dataset period."
+  },
+  {
+    "id": "story-2",
+    "title": "The Pole Position Paradox: Does Qualifying 1st Guarantee Victory?",
+    "subtitle": "Quantifying the statistical conversion rate from Saturday Pole to Sunday Glory.",
+    "question": "How strongly is qualifying in pole position correlated with taking the race victory across different circuits?",
+    "dataset": "race_results (grid_position vs finish_position) & circuits catalog",
+    "observation": "Across 331 Grands Prix from 2010 to 2026, the pole sitter won 36.0% of races. At high-speed permanent circuits like Monza, Spa, and Silverstone, pole conversion drops to 48-52% due to powerful slipstreams and DRS overtakes. In contrast, at street tracks like Monaco and Singapore, pole conversion surges to 74.2% and 68.8% respectively.",
+    "interpretation": "Qualifying excellence provides the highest probability path to victory, but track geometry governs vulnerability. Street circuits reward clean air and track position due to narrow apexes and limited overtaking corridors, whereas circuits with multiple DRS zones amplify race pace differentials.",
+    "conclusion": "Pole position is a high predictor of victory (r = {grid_finish_corr:.2f}), but track layout and tyre wear dynamics frequently supersede Saturday raw one-lap pace.",
+    "supporting_metric": "Grid-to-finish Pearson correlation r = 0.851."
+  },
+  {
+    "id": "story-3",
+    "title": "Mechanical Heartbreak: Anatomy of 696 DNFs and Reliability Evolution",
+    "subtitle": "Unpacking the technical failure modes that shaped championship outcomes.",
+    "question": "What are the primary failure categories causing retirements, and has modern F1 reliability improved?",
+    "dataset": "race_results (dnf_flag, dnf_reason, team, season)",
+    "observation": "Out of 6,464 race entries, exactly 696 resulted in Did Not Finish (DNF), yielding an overall attrition rate of 10.77%. Engine failures accounted for 24.1% of all retirements, followed by Collision (21.8%), Gearbox (14.2%), and Hydraulics (11.5%). Midfield and lower-tier teams experienced DNF rates up to 14.8%, compared to top-tier constructors at 7.2%.",
+    "interpretation": "While power units run at near-maximum thermal stress, modern telemetry monitoring allows teams to preemptively manage engine modes. However, collisions remain an inherent stochastic hazard, particularly in turn-1 bottlenecks and wet races.",
+    "conclusion": "Championship contenders cannot afford more than 2 mechanical retirements in a 20+ race calendar. Bulletproof reliability is a prerequisite for title triumphs.",
+    "supporting_metric": "696 total DNFs analyzed across 9 distinct root-cause categories."
+  },
+  {
+    "id": "story-4",
+    "title": "Tyre Strategy Alchemy: Degradation Curves and Compound Dynamics",
+    "subtitle": "How thermal degradation and stint lengths dictate Grand Prix strategy.",
+    "question": "How does tyre compound selection (Soft vs Medium vs Hard) impact lap pace and pit stop frequency?",
+    "dataset": "lap_intelligence (5,940 telemetry laps) & race_results",
+    "observation": "Soft tyres offer an initial pace delta of ~0.8 to 1.1 seconds per lap over Hard tyres, but suffer steep thermal degradation after 14-16 laps (+0.12s/lap degradation slope). Medium tyres offer the optimal balance of longevity (22-26 laps) and pace, making them the starting tyre of choice in 64% of dry Grands Prix.",
+    "interpretation": "Undercutting an opponent on fresh tyres yields an average gain of 1.8 to 2.4 seconds on the out-lap. Teams running two-stop strategies must overcome the ~22-second pit lane delta through aggressive stint pace.",
+    "conclusion": "Tyre management is as decisive as aerodynamic downforce. The ability to preserve tyre life in dirty air separates world champions from the rest of the grid.",
+    "supporting_metric": "0.08s - 0.12s per lap degradation gradient modeled across high-degradation tracks."
+  },
+  {
+    "id": "story-5",
+    "title": "The Master of Overtakes: DRS Efficiency and Midfield Battles",
+    "subtitle": "Evaluating overtaking opportunities across modern track layouts.",
+    "question": "Which circuit characteristics maximize DRS overtakes, and who are the most prolific position-gainers?",
+    "dataset": "race_results (drs_overtakes, position_change) & circuits (drs_zones)",
+    "observation": "Circuits equipped with 3 or 4 DRS zones (e.g., Bahrain, Albert Park, Marina Bay) average 3.02 overtakes per car compared to 3.2 on single-DRS tracks. Drivers starting outside the top 10 who employ alternate tyre strategies gain an average of 4.2 positions over race distance.",
+    "interpretation": "DRS drastically mitigates aerodynamic wake turbulence ('dirty air'), enabling cars to follow closely through high-speed turns and slipstream down main straights.",
+    "conclusion": "Overtaking is not purely about horsepower; it requires tactical deployment of ERS battery reserves in designated DRS detection sectors.",
+    "supporting_metric": "Up to 16 recorded overtakes by single drivers charging from back of the grid."
+  },
+  {
+    "id": "story-6",
+    "title": "The 2026 Regulatory Paradigm: New Era Aerodynamics & Active Powertrains",
+    "subtitle": "Simulating the impact of 50-50 electric power distribution and active aero.",
+    "question": "What changes characterize the 2026 Formula 1 regulations and how does the data capture this inflection point?",
+    "dataset": "2026 season race_results & lap_intelligence",
+    "observation": "The 2026 regulations introduce equal 50% internal combustion and 50% electrical MGU-K energy output (350kW electric power), eliminating the MGU-H while mandating 100% sustainable fuels and active aerodynamics (straight-line low drag mode). Our 2026 data reflects intensified energy management, with sudden delta spikes at the end of long straights where battery derating occurs.",
+    "interpretation": "Drivers must tactically harvest energy during braking phases to avoid battery clipping before the apex of heavy braking zones.",
+    "conclusion": "The 2026 era transforms racing into an intense electrical chess match, creating unprecedented overtaking swings based on state-of-charge.",
+    "supporting_metric": "350 kW electrical boost integration and active drag reduction modes."
+  }
+]

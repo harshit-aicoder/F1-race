@@ -1,0 +1,30 @@
+circuit_id,circuit_name,country,city,laps,lap_km,type,altitude_m,direction,total_race_distance_km,elevation_category,latitude,longitude,drs_zones,track_length_km,circuit_type,location
+bahrain,Bahrain International Circuit,Bahrain,Sakhir,57,5.412,Permanent,7,Clockwise,308.484,Sea Level (<50m),26.0325,50.5106,3,5.412,Permanent,Sakhir
+jeddah,Jeddah Corniche Circuit,Saudi Arabia,Jeddah,50,6.174,Street,5,Clockwise,308.7,Sea Level (<50m),21.6319,39.1044,3,6.174,Street,Jeddah
+albert_park,Albert Park Circuit,Australia,Melbourne,58,5.278,Street/Park,10,Clockwise,306.124,Sea Level (<50m),-37.8497,144.968,4,5.278,Street/Park,Melbourne
+suzuka,Suzuka International Circuit,Japan,Suzuka,53,5.807,Permanent,42,Mixed,307.771,Sea Level (<50m),34.8431,136.541,1,5.807,Permanent,Suzuka
+shanghai,Shanghai International Circuit,China,Shanghai,56,5.451,Permanent,5,Clockwise,305.256,Sea Level (<50m),31.3389,121.22,2,5.451,Permanent,Shanghai
+miami,Miami International Autodrome,USA,Miami,57,5.412,Street/Park,2,Clockwise,308.484,Sea Level (<50m),25.9581,-80.2389,3,5.412,Street/Park,Miami
+imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,63,4.909,Permanent,38,Anti-clockwise,309.267,Sea Level (<50m),44.3439,11.7167,1,4.909,Permanent,Imola
+monaco,Circuit de Monaco,Monaco,Monte Carlo,78,3.337,Street,7,Clockwise,260.286,Sea Level (<50m),43.7347,7.4206,1,3.337,Street,Monte Carlo
+canada,Circuit Gilles Villeneuve,Canada,Montreal,70,4.361,Street/Park,8,Clockwise,305.27,Sea Level (<50m),45.5,-73.5228,2,4.361,Street/Park,Montreal
+spain,Circuit de Barcelona-Catalunya,Spain,Barcelona,66,4.657,Permanent,115,Clockwise,307.362,Moderate Elevation (50-300m),41.57,2.2611,2,4.657,Permanent,Barcelona
+austria,Red Bull Ring,Austria,Spielberg,71,4.318,Permanent,678,Clockwise,306.578,High Altitude (300-1000m),47.2197,14.7647,3,4.318,Permanent,Spielberg
+silverstone,Silverstone Circuit,UK,Silverstone,52,5.891,Permanent,153,Clockwise,306.332,Moderate Elevation (50-300m),52.0786,-1.0169,2,5.891,Permanent,Silverstone
+hungary,Hungaroring,Hungary,Budapest,70,4.381,Permanent,264,Clockwise,306.67,Moderate Elevation (50-300m),47.5789,19.2486,2,4.381,Permanent,Budapest
+spa,Circuit de Spa-Francorchamps,Belgium,Spa,44,7.004,Permanent,401,Clockwise,308.176,High Altitude (300-1000m),50.4372,5.9714,2,7.004,Permanent,Spa
+zandvoort,Circuit Zandvoort,Netherlands,Zandvoort,72,4.259,Permanent,10,Clockwise,306.648,Sea Level (<50m),52.3888,4.5409,2,4.259,Permanent,Zandvoort
+monza,Autodromo Nazionale Monza,Italy,Monza,53,5.793,Permanent,162,Clockwise,307.029,Moderate Elevation (50-300m),45.6156,9.2811,2,5.793,Permanent,Monza
+baku,Baku City Circuit,Azerbaijan,Baku,51,6.003,Street,28,Anti-clockwise,306.153,Sea Level (<50m),40.3725,49.8533,2,6.003,Street,Baku
+singapore,Marina Bay Street Circuit,Singapore,Singapore,62,5.063,Street,15,Anti-clockwise,313.906,Sea Level (<50m),1.2914,103.864,4,5.063,Street,Singapore
+cota,Circuit of the Americas,USA,Austin,56,5.513,Permanent,165,Anti-clockwise,308.728,Moderate Elevation (50-300m),30.1328,-97.6411,2,5.513,Permanent,Austin
+mexico,Autodromo Hermanos Rodriguez,Mexico,Mexico City,71,4.304,Permanent,2240,Clockwise,305.584,Extreme Elevation (>1000m),19.4042,-99.0907,3,4.304,Permanent,Mexico City
+brazil,Autodromo Jose Carlos Pace,Brazil,São Paulo,71,4.309,Permanent,785,Anti-clockwise,305.939,High Altitude (300-1000m),-23.7036,-46.6997,2,4.309,Permanent,São Paulo
+las_vegas,Las Vegas Strip Circuit,USA,Las Vegas,50,6.12,Street,620,Anti-clockwise,306.0,High Altitude (300-1000m),36.1147,-115.1728,2,6.12,Street,Las Vegas
+qatar,Losail International Circuit,Qatar,Lusail,57,5.38,Permanent,11,Clockwise,306.66,Sea Level (<50m),25.49,51.4542,1,5.38,Permanent,Lusail
+abu_dhabi,Yas Marina Circuit,UAE,Abu Dhabi,58,5.281,Permanent,3,Anti-clockwise,306.298,Sea Level (<50m),24.4672,54.6031,2,5.281,Permanent,Abu Dhabi
+istanbul,Istanbul Park,Turkey,Istanbul,58,5.338,Permanent,130,Anti-clockwise,309.604,Moderate Elevation (50-300m),40.9517,29.405,2,5.338,Permanent,Istanbul
+portimao,Autodromo Internacional do Algarve,Portugal,Portimão,66,4.653,Permanent,108,Clockwise,307.098,Moderate Elevation (50-300m),37.227,-8.6267,2,4.653,Permanent,Portimão
+nurburgring,Nürburgring,Germany,Nürburg,60,5.148,Permanent,473,Clockwise,308.88,High Altitude (300-1000m),50.3356,6.9475,2,5.148,Permanent,Nürburg
+mugello,Mugello Circuit,Italy,Scarperia,59,5.245,Permanent,255,Clockwise,309.455,Moderate Elevation (50-300m),43.9975,11.3714,1,5.245,Permanent,Scarperia
+bahrain_outer,Bahrain International (Outer),Bahrain,Sakhir,87,3.543,Permanent,7,Clockwise,308.241,Sea Level (<50m),26.0325,50.5106,2,3.543,Permanent,Sakhir

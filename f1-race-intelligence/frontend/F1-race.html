@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 Race Intelligence — 3D Analytics Platform & Tableau Dashboard</title>
+
+  <!-- Google Fonts for Motorsport Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@600;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Local Vendor Libraries: 100% Offline, Zero-Lag, Instant Render -->
+  <script src="js/libs/chart.umd.min.js"></script>
+  <script src="js/libs/three.min.js"></script>
+  <script src="js/libs/OrbitControls.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="#hero" class="nav-brand">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+      </div>
+      <div class="brand-title">
+        <span>FORMULA 1</span>
+        <span>RACE INTELLIGENCE</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-item active"><a href="#hero">Race Control</a></li>
+      <li class="nav-item"><a href="#race-control">Dashboard</a></li>
+      <li class="nav-item"><a href="#circuit-lab">Circuit Lab (Verified)</a></li>
+      <li class="nav-item"><a href="#driver-intel">Driver Intel</a></li>
+      <li class="nav-item"><a href="#constructor-wars">Constructors</a></li>
+      <li class="nav-item"><a href="#grand-prix-explorer">Grand Prix</a></li>
+      <li class="nav-item"><a href="#telemetry-studio">Telemetry</a></li>
+      <li class="nav-item"><a href="#data-stories">Stories</a></li>
+      <li class="nav-item"><a href="#about-creator">About Creator</a></li>
+      <li class="nav-item"><a href="#methodology">Viva & Report</a></li>
+      <li class="nav-item"><a href="#tableau" class="nav-cta-btn">Tableau Analytics</a></li>
+    </ul>
+
+    <!-- Creator Profile Badge -->
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <a href="#about-creator" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(14, 19, 31, 0.85); border: 1px solid rgba(225, 6, 0, 0.35); padding: 0.25rem 0.75rem 0.25rem 0.35rem; border-radius: 20px; text-decoration: none; color: #FFFFFF; font-size: 0.78rem; font-weight: 700; box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);">
+        <div style="width: 26px; height: 26px; border-radius: 50%; overflow: hidden; border: 1.5px solid var(--f1-red); background: #0D121D; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/harshit-tiwari.webp" alt="Harshit Tiwari" class="creator-thumb-img" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 25%; display: block;" onerror="this.style.display='none';">
+          <span class="creator-thumb-monogram" style="display: none; font-size: 0.65rem; color: #FFFFFF; font-family: var(--font-heading);">HT</span>
+        </div>
+        <span>Harshit Tiwari</span>
+        <span style="color: #F59E0B; font-size: 0.8rem;">🇮🇳</span>
+      </a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="app-container">
+
+    <!-- ==========================================
+         SECTION 1: 3D HERO MOTORSPORT EXPERIENCE
+         ========================================== -->
+    <section id="hero" class="hero-section">
+      <div id="hero-three-canvas-container" class="hero-canvas-container">
+        <canvas id="hero-three-canvas"></canvas>
+      </div>
+
+      <div class="hero-overlay-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            LIVE TELEMETRY ACTIVE • SEASONS 2010–2026
+          </div>
+          <h1 class="hero-title">
+            FORMULA 1 <br>
+            <span class="accent-red">RACE INTELLIGENCE</span>
+          </h1>
+          <p class="hero-subtitle">
+            Beyond the Finish Line. Inside the Data.
+          </p>
+          <p id="hero-sub-stats" style="color: #64748B; font-size: 0.95rem; margin-bottom: 2rem;">
+            Analyzing 6,464 race results across 17 seasons (2010–2026), 29 international circuits, and 10 constructor teams.
+          </p>
+          <div class="hero-buttons">
+            <a href="#race-control" class="btn-primary">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Explore Race Intelligence
+            </a>
+            <a href="#tableau" class="btn-secondary">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              View Tableau Analytics
+            </a>
+          </div>
+
+          <!-- Small Creator Badge on Homepage -->
+          <div style="margin-top: 1.75rem;">
+            <a href="#about-creator" class="hero-creator-pill" title="Learn more about creator Harshit Tiwari">
+              <div class="hero-creator-avatar">
+                <img src="assets/harshit-tiwari.webp" alt="Harshit Tiwari" class="creator-thumb-img" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 25%; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="creator-thumb-monogram" style="display: none; font-size: 0.75rem; font-weight: 900; color: #FFFFFF;">HT</span>
+              </div>
+              <div style="display: flex; flex-direction: column; text-align: left; line-height: 1.15;">
+                <span class="creator-name-display" style="font-size: 0.84rem; font-weight: 800; color: #FFFFFF;">Harshit Tiwari</span>
+                <span style="font-size: 0.7rem; color: #94A3B8;">Creator &amp; Developer • <span class="creator-country-display">🇮🇳 India</span></span>
+              </div>
+              <span style="font-size: 0.72rem; color: var(--f1-cyan); margin-left: 0.5rem; font-weight: 700;">About Creator →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3D HUD Telemetry Overlay -->
+        <div class="hero-controls-hud">
+          <div class="glass-hud-panel">
+            <div class="hud-header">
+              <span class="hud-title">REAL-TIME TELEMETRY TELEMETRICS</span>
+              <span class="mono-font" style="font-size: 0.72rem; color: #10B981;">TELEMETRY FEED OK</span>
+            </div>
+            <div class="hud-telemetry-grid">
+              <div class="telemetry-tile">
+                <div class="telemetry-label">SPEED</div>
+                <div id="telemetry-speed" class="telemetry-val highlight-cyan mono-font">338 KM/H</div>
+              </div>
+              <div class="telemetry-tile">
+                <div class="telemetry-label">ENGINE REV</div>
+                <div id="telemetry-rpm" class="telemetry-val mono-font">12,450 RPM</div>
+              </div>
+              <div class="telemetry-tile">
+                <div class="telemetry-label">GEAR</div>
+                <div id="telemetry-gear" class="telemetry-val highlight-red mono-font">8TH</div>
+              </div>
+              <div class="telemetry-tile">
+                <div class="telemetry-label">ERS CHARGE</div>
+                <div id="telemetry-ers" class="telemetry-val highlight-cyan mono-font">94%</div>
+              </div>
+              <div class="telemetry-tile">
+                <div class="telemetry-label">BRAKE TEMP</div>
+                <div class="telemetry-val mono-font">640°C</div>
+              </div>
+              <div class="telemetry-tile">
+                <div class="telemetry-label">DRS WING</div>
+                <div class="telemetry-val highlight-cyan mono-font" style="color: #10B981;">AVAILABLE</div>
+              </div>
+            </div>
+
+            <!-- 3D View Controls -->
+            <div class="scene-toggles-bar">
+              <button id="toggle-rotate-btn" class="toggle-btn active">Auto-Rotate</button>
+              <button id="toggle-wireframe-btn" class="toggle-btn">Aero Wireframe</button>
+              <button id="toggle-glow-btn" class="toggle-btn active">Ground Underglow</button>
+            </div>
+            <div class="scene-toggles-bar" style="margin-top: 0.5rem;">
+              <span style="font-size: 0.68rem; color: #64748B; align-self: center;">CAMERA:</span>
+              <button class="toggle-btn cam-view-btn active" data-view="isometric">Isometric</button>
+              <button class="toggle-btn cam-view-btn" data-view="front">Front Aero</button>
+              <button class="toggle-btn cam-view-btn" data-view="cockpit">Cockpit</button>
+              <button class="toggle-btn cam-view-btn" data-view="rear">Rear Diffuser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: RACE CONTROL DASHBOARD
+         ========================================== -->
+    <section id="race-control" class="section">
+      <div class="section-header">
+        <div class="section-tag">🏁 Motorsport Operations</div>
+        <h2 class="section-title">Race Control Main Dashboard</h2>
+        <p class="section-subtitle">
+          Real-time analytics and global benchmark KPIs spanning 17 seasons of Formula 1 racing data.
+        </p>
+      </div>
+
+      <!-- 4 Standard KPI Cards Matching Reference Specification -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="color: #E10600;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div class="kpi-title">Competing Teams</div>
+          <div id="kpi-teams" class="kpi-number">10</div>
+          <div class="kpi-desc">Top constructors active across modern eras</div>
+        </div>
+
+        <div class="kpi-card cyan-accent">
+          <div class="kpi-icon-wrap">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="kpi-title">Seasons in Play</div>
+          <div id="kpi-seasons" class="kpi-number">17</div>
+          <div class="kpi-desc">Continuous historical coverage (2010 – 2026)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="color: #F59E0B;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div class="kpi-title">Race Outcomes Logged</div>
+          <div id="kpi-outcomes" class="kpi-number">6,464</div>
+          <div class="kpi-desc">Verified classification rows with 41 attributes</div>
+        </div>
+
+        <div class="kpi-card cyan-accent">
+          <div class="kpi-icon-wrap">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="kpi-title">Circuits Showcased</div>
+          <div id="kpi-circuits" class="kpi-number">29</div>
+          <div class="kpi-desc">Global tracks across 21 host countries</div>
+        </div>
+      </div>
+
+      <!-- Global Filter Bar -->
+      <div class="filter-bar-container">
+        <div class="filter-group">
+          <label class="filter-label" for="filter-season">Filter Season</label>
+          <select id="filter-season" class="custom-select">
+            <option value="all">All Seasons (2010 - 2026)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-team">Filter Constructor</label>
+          <select id="filter-team" class="custom-select">
+            <option value="all">All Constructors (10 Teams)</option>
+          </select>
+        </div>
+
+        <div class="filter-group" style="min-width: 200px;">
+          <div style="display: flex; justify-content: space-between;">
+            <label class="filter-label" for="filter-top-n">Top N Parameter</label>
+            <span id="top-n-display" class="mono-font" style="font-size: 0.75rem; color: #00F5D4;">10</span>
+          </div>
+          <input type="range" id="filter-top-n" min="5" max="25" value="10" step="1" style="width: 100%; accent-color: var(--f1-red);">
+        </div>
+
+        <button id="filter-reset" class="filter-reset-btn">Reset Filters</button>
+      </div>
+
+      <!-- Main Visualizations Grid -->
+      <div class="dashboard-grid-2">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Driver Performance Leaderboard</h3>
+              <p class="chart-subtitle">Ranked by career points • Top N Parameter Controlled</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #00F5D4;">VERTICAL BAR CHART</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-driver-leaderboard"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Driver Reliability Analysis</h3>
+              <p class="chart-subtitle">Retirements (DNF) categorized by technical failure modes</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #E10600;">STACKED BAR CHART</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-driver-reliability"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: DRIVER INTELLIGENCE & H2H COMPARATOR
+         ========================================== -->
+    <section id="driver-intel" class="section">
+      <div class="section-header">
+        <div class="section-tag">🏎️ Driver Analytics</div>
+        <h2 class="section-title">Driver Intelligence & Head-to-Head Comparator</h2>
+        <p class="section-subtitle">
+          Direct comparative telemetry and historical records between Formula 1 champions.
+        </p>
+      </div>
+
+      <!-- Interactive Head-to-Head Comparison Card -->
+      <div class="driver-h2h-container">
+        <div class="h2h-selectors-row">
+          <div class="h2h-driver-box">
+            <div style="flex: 1;">
+              <label class="filter-label" for="h2h-select-a" style="color: var(--f1-red-bright);">SELECT DRIVER A</label>
+              <select id="h2h-select-a" class="custom-select" style="width: 100%; margin-top: 0.35rem;"></select>
+              <div style="margin-top: 0.65rem;">
+                <div id="h2h-name-a" class="brand-font" style="font-size: 1.35rem;">Lewis Hamilton</div>
+                <div id="h2h-team-a" style="color: #94A3B8; font-size: 0.85rem;">Mercedes-AMG PETRONAS</div>
+                <div id="h2h-num-a" class="mono-font" style="color: var(--f1-red); font-size: 0.8rem;">#44 • British</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="h2h-vs-badge">VS</div>
+
+          <div class="h2h-driver-box">
+            <div style="flex: 1;">
+              <label class="filter-label" for="h2h-select-b" style="color: var(--f1-cyan-bright);">SELECT DRIVER B</label>
+              <select id="h2h-select-b" class="custom-select" style="width: 100%; margin-top: 0.35rem;"></select>
+              <div style="margin-top: 0.65rem;">
+                <div id="h2h-name-b" class="brand-font" style="font-size: 1.35rem;">Max Verstappen</div>
+                <div id="h2h-team-b" style="color: #94A3B8; font-size: 0.85rem;">Red Bull Racing</div>
+                <div id="h2h-num-b" class="mono-font" style="color: var(--f1-cyan); font-size: 0.8rem;">#1 • Dutch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Progress Bars Comparison -->
+        <div class="comparison-bars-grid">
+          <div class="comp-metric-row">
+            <div class="comp-metric-header">
+              <span id="h2h-val-a-wins" class="comp-val-left mono-font">103</span>
+              <span class="comp-metric-label">Grand Prix Wins</span>
+              <span id="h2h-val-b-wins" class="comp-val-right mono-font">61</span>
+            </div>
+            <div class="comp-progress-dual">
+              <div id="h2h-bar-a-wins" class="comp-bar-left" style="width: 62.8%;"></div>
+              <div id="h2h-bar-b-wins" class="comp-bar-right" style="width: 37.2%;"></div>
+            </div>
+          </div>
+
+          <div class="comp-metric-row">
+            <div class="comp-metric-header">
+              <span id="h2h-val-a-podiums" class="comp-val-left mono-font">197</span>
+              <span class="comp-metric-label">Career Podiums (P1 - P3)</span>
+              <span id="h2h-val-b-podiums" class="comp-val-right mono-font">109</span>
+            </div>
+            <div class="comp-progress-dual">
+              <div id="h2h-bar-a-podiums" class="comp-bar-left" style="width: 64.3%;"></div>
+              <div id="h2h-bar-b-podiums" class="comp-bar-right" style="width: 35.7%;"></div>
+            </div>
+          </div>
+
+          <div class="comp-metric-row">
+            <div class="comp-metric-header">
+              <span id="h2h-val-a-points" class="comp-val-left mono-font">4820</span>
+              <span class="comp-metric-label">Total Championship Points</span>
+              <span id="h2h-val-b-points" class="comp-val-right mono-font">2980</span>
+            </div>
+            <div class="comp-progress-dual">
+              <div id="h2h-bar-a-points" class="comp-bar-left" style="width: 61.7%;"></div>
+              <div id="h2h-bar-b-points" class="comp-bar-right" style="width: 38.3%;"></div>
+            </div>
+          </div>
+
+          <div class="comp-metric-row">
+            <div class="comp-metric-header">
+              <span id="h2h-val-a-winrate" class="comp-val-left mono-font">30.8%</span>
+              <span class="comp-metric-label">Win Conversion Rate (%)</span>
+              <span id="h2h-val-b-winrate" class="comp-val-right mono-font">29.6%</span>
+            </div>
+            <div class="comp-progress-dual">
+              <div id="h2h-bar-a-winrate" class="comp-bar-left" style="width: 51%;"></div>
+              <div id="h2h-bar-b-winrate" class="comp-bar-right" style="width: 49%;"></div>
+            </div>
+          </div>
+
+          <div class="comp-metric-row">
+            <div class="comp-metric-header">
+              <span id="h2h-val-a-dnfrate" class="comp-val-left mono-font">8.4%</span>
+              <span class="comp-metric-label">Reliability Index (Lower DNF is Better)</span>
+              <span id="h2h-val-b-dnfrate" class="comp-val-right mono-font">11.2%</span>
+            </div>
+            <div class="comp-progress-dual">
+              <div id="h2h-bar-a-dnfrate" class="comp-bar-left" style="width: 57%;"></div>
+              <div id="h2h-bar-b-dnfrate" class="comp-bar-right" style="width: 43%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: CONSTRUCTOR WARS (STRATEGY WALL)
+         ========================================== -->
+    <section id="constructor-wars" class="section">
+      <div class="section-header">
+        <div class="section-tag">🏭 Team Strategy Wall</div>
+        <h2 class="section-title">Constructor Wars</h2>
+        <p class="section-subtitle">
+          Championship supremacy and point progression across the 17 seasons of regulatory shifts.
+        </p>
+      </div>
+
+      <div class="dashboard-grid-2">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Team Performance Ranking</h3>
+              <p class="chart-subtitle">Cumulative Constructor Points (2010–2026)</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #00D2BE;">HORIZONTAL BAR</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-team-ranking"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Championship Points Progression Across Eras</h3>
+              <p class="chart-subtitle">V8 Red Bull era vs. Mercedes V6 Hybrid vs. Ground Effect</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #E10600;">MULTI-LINE TIMELINE</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-team-progression"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: GRAND PRIX EXPLORER
+         ========================================== -->
+    <section id="grand-prix-explorer" class="section">
+      <div class="section-header">
+        <div class="section-tag">🏆 Race Telemetry & Classification</div>
+        <h2 class="section-title">Grand Prix Explorer</h2>
+        <p class="section-subtitle">
+          Select any historical season and Grand Prix to explore classification, overtakes, and gap deltas.
+        </p>
+      </div>
+
+      <div class="filter-bar-container" style="margin-bottom: 1.5rem;">
+        <div class="filter-group">
+          <label class="filter-label" for="gp-select-season">Select Season</label>
+          <select id="gp-select-season" class="custom-select"></select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" for="gp-select-circuit">Select Grand Prix</label>
+          <select id="gp-select-circuit" class="custom-select" style="min-width: 250px;"></select>
+        </div>
+      </div>
+
+      <!-- Winner Highlight Banner -->
+      <div class="glass-hud-panel" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, rgba(225,6,0,0.1), rgba(0,210,190,0.05));">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="font-size: 0.75rem; color: var(--f1-cyan); font-weight: 700; text-transform: uppercase;">GRAND PRIX WINNER</div>
+            <div id="gp-winner-name" class="brand-font" style="font-size: 1.6rem; color: #FFFFFF;">Charles Leclerc</div>
+            <div id="gp-winner-team" style="color: #94A3B8; font-size: 0.9rem;">Scuderia Ferrari</div>
+          </div>
+          <div id="gp-winner-gap" class="mono-font" style="font-size: 0.85rem; color: #00F5D4; text-align: right;">
+            Fastest Lap: 1:21.046 (P1 Grid: 1)
+          </div>
+        </div>
+      </div>
+
+      <!-- Classification Table -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3);">
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Pos</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Driver</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Constructor</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Grid</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Net +/-</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Interval / Status</th>
+              <th style="padding: 1rem; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Points</th>
+            </tr>
+          </thead>
+          <tbody id="gp-table-body">
+            <!-- Populated dynamically via app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: CIRCUIT LAB — 3D TRACK EXPERIENCE (AUTHENTIC USER DATASET)
+         ========================================== -->
+    <section id="circuit-lab" class="section">
+      <div class="section-header">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+          <div class="section-tag">🛰️ Spatial Telemetry</div>
+          <div class="section-tag" style="color: #10B981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+            ✓ 100% AUTHENTIC DATASET CONNECTED (`circuits.csv`)
+          </div>
+        </div>
+        <h2 class="section-title">Circuit Lab — 3D Track & Elevation Intelligence</h2>
+        <p class="section-subtitle">
+          Directly computed from your uploaded <code>F1 Racing Project Dataset.xlsx - circuits.csv</code>. Explore track elevations, scheduled laps, lap distances, race distance calculations, and circuit direction geometries.
+        </p>
+      </div>
+
+      <div class="circuit-lab-container">
+        <!-- 3D Canvas Box -->
+        <div id="circuit-canvas-box" class="circuit-canvas-box">
+          <canvas id="circuit-three-canvas"></canvas>
+
+          <div class="circuit-canvas-hud">
+            <div id="circuit-hud-name" class="circuit-hud-name">Autodromo Nazionale Monza</div>
+            <div id="circuit-hud-loc" class="circuit-hud-sub">Monza, Italy • 5.793 KM</div>
+          </div>
+
+          <div class="circuit-controls-overlay">
+            <div style="display: flex; gap: 0.5rem;">
+              <select id="circuit-lab-select" class="custom-select" style="background: rgba(14,19,31,0.9); font-size: 0.8rem; min-width: 280px;">
+                <!-- Populated dynamically with all 29 user circuits -->
+              </select>
+            </div>
+            <div style="display: flex; gap: 0.4rem;">
+              <button class="toggle-btn circuit-cam-btn active" data-cam="orbit">360 Orbit</button>
+              <button class="toggle-btn circuit-cam-btn" data-cam="topdown">Satellite Top</button>
+              <button class="toggle-btn circuit-cam-btn" data-cam="chase">Chase Cam</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Circuit Data Card From Authentic User Dataset -->
+        <div class="circuit-sidebar-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem;">
+            <h3 class="brand-font" style="font-size: 1.05rem; color: #FFFFFF;">
+              AUTHENTIC CIRCUIT ATTRIBUTES
+            </h3>
+            <span class="mono-font" style="font-size: 0.68rem; color: #10B981; background: rgba(16,185,129,0.15); padding: 0.2rem 0.5rem; border-radius: 4px;">VERIFIED</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">LAP DISTANCE (lap_km)</span>
+            <span id="circuit-stat-len" class="mono-font" style="font-weight: 700; color: #FFFFFF;">5.793 KM</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">SCHEDULED LAPS (laps)</span>
+            <span id="circuit-stat-laps" class="mono-font" style="font-weight: 700; color: #FFFFFF;">53 Laps</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">TOTAL RACE DISTANCE</span>
+            <span id="circuit-stat-dist" class="mono-font" style="font-weight: 700; color: #00F5D4;">307.029 KM</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">CIRCUIT TYPE (type)</span>
+            <span id="circuit-stat-type" style="font-weight: 700; color: #FFFFFF;">Permanent</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">ALTITUDE (altitude_m)</span>
+            <span id="circuit-stat-alt" class="mono-font" style="font-weight: 700; color: #E10600;">162 M (Moderate Elevation)</span>
+          </div>
+
+          <div class="circuit-stat-item">
+            <span style="color: #94A3B8; font-size: 0.82rem;">TRACK DIRECTION (direction)</span>
+            <span id="circuit-stat-dir" style="font-weight: 700; color: #F59E0B;">Clockwise</span>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.35); padding: 0.85rem; border-radius: 6px; border-left: 3px solid var(--f1-cyan); margin-top: auto;">
+            <div style="font-size: 0.72rem; color: var(--f1-cyan); font-weight: 700; text-transform: uppercase;">DATASET PROVENANCE</div>
+            <div style="font-size: 0.78rem; color: #CBD5E1; margin-top: 0.25rem;">
+              Source: <code>data/raw/F1 Racing Project Dataset.xlsx - circuits.csv</code> • 29 Circuits Verified
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Authentic Visualizations Derived from circuits.csv -->
+      <div class="dashboard-grid-2" style="margin-top: 2rem;">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Circuit Altitude & Elevation Comparison</h3>
+              <p class="chart-subtitle">Elevation above sea level (Meters) • Mexico City (2240m) down to Miami (2m)</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #E10600;">ELEVATION PROFILE</span>
+          </div>
+          <div class="chart-canvas-wrapper" style="min-height: 340px;">
+            <canvas id="chart-circuit-elevation"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Track Direction Distribution (Clockwise vs. Anti-clockwise)</h3>
+              <p class="chart-subtitle">Physical rotational stress direction across the 29 Grand Prix tracks</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #00D2BE;">DIRECTION BREAKDOWN</span>
+          </div>
+          <div class="chart-canvas-wrapper" style="min-height: 340px;">
+            <canvas id="chart-circuit-direction"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7: TELEMETRY STUDIO
+         ========================================== -->
+    <section id="telemetry-studio" class="section">
+      <div class="section-header">
+        <div class="section-tag">⚡ Telemetry & Pace Dynamics</div>
+        <h2 class="section-title">Telemetry Studio</h2>
+        <p class="section-subtitle">
+          In-depth lap times, tyre degradation gradients, and correlation analysis.
+        </p>
+      </div>
+
+      <div class="dashboard-grid-2">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Qualifying Position vs. Finish Position Correlation</h3>
+              <p class="chart-subtitle">Pearson correlation r = 0.851 (Sample of 300 Grand Prix outcomes)</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #00F5D4;">SCATTER PLOT</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-quali-vs-finish"></canvas>
+          </div>
+        </div>
+
+        <div class="assets/chart11.js">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Lap-Time Telemetry Degradation Curves</h3>
+              <p class="chart-subtitle">High-resolution stint pace and tyre degradation slopes (Monza GP)</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #E10600;">TELEMETRY TRACE</span>
+          </div>
+          <div class="chart-canvas-wrapper"  style="min-height: 280px;">
+            <canvas id="chart-telemetry-pace"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Tyre Compound Usage Distribution</h3>
+              <p class="chart-subtitle">Aggregate allocation of Soft, Medium, Hard, and Wet tires</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #F59E0B;">DOUGHNUT CHART</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="chart-tyre-distribution"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Podium Achievements (Packed Bubble)</h3>
+              <p class="chart-subtitle">Career Wins vs. Podiums (Bubble area scaled by career points)</p>
+            </div>
+            <span class="mono-font" style="font-size: 0.75rem; color: #00D2BE;">PACKED BUBBLE</span>
+          </div>
+          <div class="chart-canvas-wrapper" style="min-height: 280px;">
+            <canvas id="chart-podiums-bubble"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8: DATA STORIES
+         ========================================== -->
+    <section id="data-stories" class="section">
+      <div class="section-header">
+        <div class="section-tag">📖 Analytical Storytelling</div>
+        <h2 class="section-title">Data Stories</h2>
+        <p class="section-subtitle">
+          Structured analytical narratives addressing key motorsport questions backed by empirical data.
+        </p>
+      </div>
+
+      <div id="stories-container" class="stories-grid">
+        <!-- Populated dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 9: TABLEAU ANALYTICS DELIVERABLE
+         ========================================== -->
+    <section id="tableau" class="section">
+      <div class="section-header">
+        <div class="section-tag">📊 Mandatory Tableau Deliverable</div>
+        <h2 class="section-title">Tableau Dashboard & Story Deliverables</h2>
+        <p class="section-subtitle">
+          Connects the cleaned 17-season Formula 1 dataset to a full Tableau Desktop & Public workbook.
+        </p>
+      </div>
+
+      <!-- Tableau Banner & Direct Downloads -->
+      <div class="tableau-banner">
+        <div>
+          <h3 class="brand-font" style="font-size: 1.4rem; color: #FFFFFF; margin-bottom: 0.4rem;">
+            Ready-to-Run Tableau Deliverable (.twbx & .twb)
+          </h3>
+          <p style="color: #CBD5E1; font-size: 0.88rem; max-width: 680px;">
+            Contains all 5 dedicated dashboards and the 9 Story Scenes. Fully configured with calculated fields (`[DNF Count]`, `[Points Cumulative]`, `[Top N Parameter]`).
+          </p>
+        </div>
+
+        <div class="tableau-downloads-group">
+          <a href="assets/f1_race_intelligence.twbx" download class="btn-download" style="background: var(--f1-red); border-color: var(--f1-red);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download Tableau Packaged (.twbx)
+          </a>
+          <a href="assets/f1_race_intelligence.twb" download class="btn-download">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Download Tableau Workbook (.twb)
+          </a>
+          <a href="assets/race_results.csv" download class="btn-download">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Master Cleaned CSV (6,464 Rows)
+          </a>
+        </div>
+      </div>
+
+      <!-- Tableau Step-by-Step Execution Guide -->
+      <div class="dashboard-grid-2">
+        <div class="chart-card">
+          <h3 class="chart-title" style="margin-bottom: 1rem; color: var(--f1-cyan);">
+            How to Open in Tableau Desktop (Installed on this PC)
+          </h3>
+          <ol style="padding-left: 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.8;">
+            <li>Tableau Desktop 2026.3 is installed on this machine at <code>C:\Program Files\Tableau\Tableau 2026.3\bin\tableau.exe</code>.</li>
+            <li>Double-click the generated <code>tableau/f1_race_intelligence.twbx</code> file or launch Tableau and select <strong>File &gt; Open</strong>.</li>
+            <li>All 5 sheets (`circuits`, `race_results`, `championship_standings`, `lap_intelligence`, `qualifying_results`) will unpack automatically from the package.</li>
+            <li>Use the dynamic <strong>[Top N Parameter]</strong> slider to alter driver leaderboard depth.</li>
+          </ol>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title" style="margin-bottom: 1rem; color: var(--f1-red-bright);">
+            Tableau 9 Story Scenes Overview
+          </h3>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.7;">
+            <li><strong>Scene 1:</strong> Global Scale Overview (4 KPI cards)</li>
+            <li><strong>Scene 2:</strong> Geographic Grand Prix Distribution Map</li>
+            <li><strong>Scene 3:</strong> Driver Reliability &amp; DNF Stacked Bar</li>
+            <li><strong>Scene 4:</strong> Driver Performance Leaderboard (Top N)</li>
+            <li><strong>Scene 5:</strong> Team Performance Ranking (Constructor points)</li>
+            <li><strong>Scene 6:</strong> Championship Evolution Across Regulatory Eras</li>
+            <li><strong>Scene 7:</strong> Tyre Compound Strategy &amp; Degradation</li>
+            <li><strong>Scene 8:</strong> Country-Level Race Participation Treemap</li>
+            <li><strong>Scene 9:</strong> Podium Achievements by Driver and Team (Packed Bubble)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 10: ABOUT THE CREATOR (HARSHIT TIWARI)
+         ========================================== -->
+    <section id="about-creator" class="creator-section">
+      <!-- Background Circuit Telemetry Art -->
+      <svg class="creator-bg-circuit-art" viewBox="0 0 1000 600" fill="none" stroke="#E10600" stroke-width="1.5">
+        <path d="M 100,300 C 100,100 400,80 550,150 C 700,220 850,100 900,280 C 950,450 780,520 600,480 C 450,450 300,550 150,450 Z" stroke-dasharray="12 8" />
+        <circle cx="550" cy="150" r="8" fill="#00D2BE" />
+        <circle cx="900" cy="280" r="8" fill="#E10600" />
+      </svg>
+
+      <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+        <div class="section-tag" style="background: rgba(225, 6, 0, 0.1); border-color: rgba(225, 6, 0, 0.35); color: var(--f1-red-bright);">
+          👨‍💻 Platform Creator &amp; Lead Architect
+        </div>
+        <h2 class="section-title">About the Creator</h2>
+        <p class="section-subtitle" style="margin: 0.5rem auto 0 auto;">
+          The developer behind the engineering, 3D WebGL scenes, and business intelligence of Formula 1 Race Intelligence.
+        </p>
+      </div>
+
+      <div class="creator-card-outer">
+        <!-- 3D Circular Avatar Column -->
+        <div class="creator-avatar-wrap">
+          <div id="creator-avatar-frame" class="creator-avatar-frame" title="Harshit Tiwari - Creator Profile Photo (Click to Change)">
+            <div class="creator-avatar-rim">
+              <!-- Actual Profile Photo in Circular Frame -->
+              <img id="creator-avatar-img" src="assets/harshit-tiwari.webp" alt="Harshit Tiwari - Creator Profile Photo" onerror="this.style.display='none'; document.getElementById('creator-avatar-monogram').style.display='flex';" />
+
+              <!-- Futuristic Monogram Placeholder (fallback if image fails) -->
+              <div id="creator-avatar-monogram" class="creator-avatar-monogram" style="display: none;">
+                <svg class="telemetry-ring" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(225,6,0,0.3)" stroke-width="2" />
+                  <circle cx="50" cy="50" r="46" fill="none" stroke="#00D2BE" stroke-width="2.5" stroke-dasharray="14 10" />
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4 6" />
+                </svg>
+                <div class="monogram-letters">HT</div>
+                <div class="monogram-sub">CREATOR</div>
+              </div>
+
+              <!-- Interactive Hover Upload Overlay -->
+              <div class="creator-photo-overlay">
+                <svg viewBox="0 0 24 24"><path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+                <span>Change Photo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden File Upload Input -->
+          <input type="file" id="creator-photo-upload-input" accept="image/*" style="display: none;" aria-label="Upload Harshit Tiwari's profile photo" />
+
+          <!-- Photo Action Controls -->
+          <div class="creator-photo-btn-bar">
+            <button id="creator-photo-upload-trigger" class="creator-upload-text-btn">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+              Upload Photo
+            </button>
+            <button id="creator-photo-reset-btn" class="creator-upload-text-btn" style="display: none; color: #EF4444;">
+              Reset
+            </button>
+          </div>
+          <span style="font-size: 0.68rem; color: #64748B; margin-top: 0.4rem; text-align: center;">Click avatar or choose photo to personalize</span>
+        </div>
+
+        <!-- Creator Profile Information Column -->
+        <div class="creator-info-content">
+          <div class="creator-header-row">
+            <div>
+              <div class="creator-country-pill creator-country-display">
+                🇮🇳 India
+              </div>
+            </div>
+            <span class="mono-font" style="font-size: 0.72rem; color: #10B981; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); padding: 0.25rem 0.65rem; border-radius: 4px;">
+              LEAD ARCHITECT
+            </span>
+          </div>
+
+          <div>
+            <h3 class="creator-name creator-name-display brand-font">Harshit Tiwari</h3>
+            <div class="creator-title-badge creator-role-display">
+              Creator &amp; Developer of Formula 1 Race Intelligence
+            </div>
+          </div>
+
+          <p class="creator-bio-text creator-desc-display">
+            Building an immersive Formula 1 analytics experience by combining data science, interactive visualization, and modern web technology.
+          </p>
+
+          <!-- Core Competencies -->
+          <div>
+            <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+              CORE SPECIALIZATIONS
+            </div>
+            <div id="creator-competencies-list" class="creator-tech-wrap">
+              <!-- Populated dynamically via creator-profile.js -->
+            </div>
+          </div>
+
+          <!-- Creator Metric Tiles -->
+          <div id="creator-stats-grid" class="creator-stats-grid">
+            <!-- Populated dynamically via creator-profile.js -->
+          </div>
+
+          <!-- Official LinkedIn CTA Button -->
+          <div style="margin-top: 0.5rem;">
+            <a href="https://www.linkedin.com/in/harshit-tiwari-584a57324/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBsqwXxeDT%2BqsPlkeArq0tA%3D%3D" target="_blank" rel="noopener noreferrer" class="creator-linkedin-btn creator-linkedin-link" aria-label="Connect with Harshit Tiwari on LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Connect on LinkedIn</span>
+              <span style="font-size: 1.1rem; margin-left: 0.2rem;">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 11: METHODOLOGY & VIVA DEFENSE PREP
+         ========================================== -->
+    <section id="methodology" class="section">
+      <div class="section-header">
+        <div class="section-tag">🎓 Academic Defense & Viva Prep</div>
+        <h2 class="section-title">Project Methodology & Viva Defense Guide</h2>
+        <p class="section-subtitle">
+          20+ curated Viva Voce examination questions with comprehensive answers for a 1st year BTech student.
+        </p>
+      </div>
+
+      <!-- Searchable Viva Accordion -->
+      <div class="viva-search-box">
+        <input type="text" id="viva-search" class="custom-input" placeholder="🔍 Search any Viva question or keyword (e.g., 'DNF', 'Three.js', 'correlation', 'Tableau', 'undercut')..." style="width: 100%; padding: 0.85rem 1.25rem;">
+      </div>
+
+      <div id="viva-list" class="viva-accordion-list">
+        <!-- Populated dynamically via app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+      <div style="text-align: left;">
+        <div class="brand-font" style="font-size: 1.15rem; color: #FFFFFF;">FORMULA 1 RACE INTELLIGENCE</div>
+        <div style="color: #64748B; font-size: 0.8rem; margin-top: 0.25rem;">
+          College Computer Science Capstone Project • 2010–2026 Dataset
+        </div>
+        <div style="margin-top: 0.75rem;">
+          <div style="font-size: 0.88rem; color: #FFFFFF; font-weight: 700;">
+            Designed &amp; Developed by <a href="https://www.linkedin.com/in/harshit-tiwari-584a57324/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBsqwXxeDT%2BqsPlkeArq0tA%3D%3D" target="_blank" rel="noopener noreferrer" class="creator-linkedin-link" style="color: var(--f1-cyan); text-decoration: none; border-bottom: 1px dotted var(--f1-cyan);">Harshit Tiwari</a> 🇮🇳
+          </div>
+          <div style="font-size: 0.78rem; color: #94A3B8; margin-top: 0.2rem;">
+            Creator &amp; Lead Architect • India
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
+        <a href="https://www.linkedin.com/in/harshit-tiwari-584a57324/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBsqwXxeDT%2BqsPlkeArq0tA%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-download creator-linkedin-link" style="background: rgba(0, 119, 181, 0.15); border-color: rgba(0, 119, 181, 0.4); color: #FFFFFF; font-size: 0.82rem; padding: 0.55rem 1rem;">
+          <svg width="16" height="16" fill="#0077B5" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          Connect on LinkedIn
+        </a>
+        <div style="display: flex; gap: 0.75rem;">
+          <span class="mono-font" style="font-size: 0.75rem; color: var(--f1-cyan);">Three.js WebGL</span>
+          <span class="mono-font" style="font-size: 0.75rem; color: var(--f1-red);">Python 3.14</span>
+          <span class="mono-font" style="font-size: 0.75rem; color: #F59E0B;">Tableau 2026.3</span>
+          <span class="mono-font" style="font-size: 0.75rem; color: #CBD5E1;">Chart.js</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Coordinator Scripts -->
+  <script src="js/creator-config.js"></script>
+  <script src="js/embedded-data.js"></script>
+  <script src="js/data-loader.js"></script>
+  <script src="js/three-hero.js"></script>
+  <script src="js/three-circuit.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/creator-profile.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+driver,team,nationality,total_points,wins,podiums,races_entered,dnfs,driver_championship_rank,constructor_points,constructor_wins,constructor_podiums,constructor_dnfs,constructor_championship_rank,season
+Sebastian Vettel,Red Bull Racing,German,347,6,15,19,0,1,613,10,23,0,1,2010
+Lewis Hamilton,McLaren Formula 1 Team,British,329,6,14,19,1,2,488,6,17,2,2,2010
+Mark Webber,Red Bull Racing,Australian,266,4,8,19,0,3,613,10,23,0,1,2010
+Fernando Alonso,Scuderia Ferrari,Spanish,256,3,9,19,1,4,414,3,13,4,3,2010
+Jenson Button,McLaren Formula 1 Team,British,159,0,3,19,1,5,488,6,17,2,2,2010
+Felipe Massa,Scuderia Ferrari,Brazilian,158,0,4,19,3,6,414,3,13,4,3,2010
+Nico Rosberg,Mercedes-AMG PETRONAS,German,135,0,2,19,0,7,182,0,2,0,4,2010
+Kimi Räikkönen,Alpine F1 Team,Finnish,117,0,2,19,2,8,178,0,2,4,5,2010
+Romain Grosjean,Alpine F1 Team,French,61,0,0,19,2,9,178,0,2,4,5,2010
+Michael Schumacher,Mercedes-AMG PETRONAS,International,47,0,0,19,0,10,182,0,2,0,4,2010
+Sergio Perez,Stake F1 Team Kick Sauber,Mexican,16,0,0,19,2,11,24,0,0,5,6,2010
+Kamui Kobayashi,Stake F1 Team Kick Sauber,International,8,0,0,19,3,12,24,0,0,5,6,2010
+Nico Hülkenberg,Aston Martin Aramco,German,7,0,0,19,2,13,13,0,0,4,7,2010
+Paul di Resta,Aston Martin Aramco,International,6,0,0,19,2,14,13,0,0,4,7,2010
+Daniel Ricciardo,Visa Cash App RB,Australian,4,0,0,19,4,15,5,0,0,8,8,2010
+Bruno Senna,Williams Racing,International,2,0,0,19,3,16,2,0,0,4,9,2010
+Jean-Éric Vergne,Visa Cash App RB,International,1,0,0,19,4,17,5,0,0,8,8,2010
+Heikki Kovalainen,Haas F1 Team,International,0,0,0,19,1,18,0,0,0,4,10,2010
+Jarno Trulli,Haas F1 Team,International,0,0,0,19,3,19,0,0,0,4,10,2010
+Pastor Maldonado,Williams Racing,International,0,0,0,19,1,20,2,0,0,4,9,2010
+Sebastian Vettel,Red Bull Racing,German,323,7,13,19,2,1,577,10,22,4,1,2011
+Fernando Alonso,Scuderia Ferrari,Spanish,291,4,14,19,3,2,440,4,17,7,2,2011
+Mark Webber,Red Bull Racing,Australian,254,3,9,19,2,3,577,10,22,4,1,2011
+Lewis Hamilton,McLaren Formula 1 Team,British,251,4,9,19,3,4,427,4,13,5,3,2011
+Jenson Button,McLaren Formula 1 Team,British,176,0,4,19,2,5,427,4,13,5,3,2011
+Kimi Räikkönen,Alpine F1 Team,Finnish,155,0,2,19,0,6,239,0,2,4,4,2011
+Felipe Massa,Scuderia Ferrari,Brazilian,149,0,3,19,4,7,440,4,17,7,2,2011
+Nico Rosberg,Mercedes-AMG PETRONAS,German,139,1,3,19,2,8,171,1,3,2,5,2011
+Romain Grosjean,Alpine F1 Team,French,84,0,0,19,4,9,239,0,2,4,4,2011
+Michael Schumacher,Mercedes-AMG PETRONAS,International,32,0,0,19,0,10,171,1,3,2,5,2011
+Kamui Kobayashi,Stake F1 Team Kick Sauber,International,20,0,0,19,0,11,32,0,0,2,6,2011
+Nico Hülkenberg,Aston Martin Aramco,German,16,0,0,19,1,12,20,0,0,3,7,2011
+Sergio Perez,Stake F1 Team Kick Sauber,Mexican,12,0,0,19,2,13,32,0,0,2,6,2011
+Daniel Ricciardo,Visa Cash App RB,Australian,7,0,0,19,3,14,8,0,0,5,8,2011
+Bruno Senna,Williams Racing,International,5,0,0,19,2,15,5,0,0,4,9,2011
+Paul di Resta,Aston Martin Aramco,International,4,0,0,19,2,16,20,0,0,3,7,2011
+Jean-Éric Vergne,Visa Cash App RB,International,1,0,0,19,2,17,8,0,0,5,8,2011
+Heikki Kovalainen,Haas F1 Team,International,0,0,0,19,2,18,0,0,0,2,10,2011
+Jarno Trulli,Haas F1 Team,International,0,0,0,19,0,19,0,0,0,2,10,2011
+Pastor Maldonado,Williams Racing,International,0,0,0,19,2,20,5,0,0,4,9,2011
+Sebastian Vettel,Red Bull Racing,German,391,8,18,20,0,1,636,9,27,2,1,2012
+Lewis Hamilton,McLaren Formula 1 Team,British,321,7,13,20,2,2,538,8,18,4,2,2012
+Fernando Alonso,Scuderia Ferrari,Spanish,245,2,7,20,0,3,378,2,10,4,3,2012
+Mark Webber,Red Bull Racing,Australian,245,1,9,20,2,4,636,9,27,2,1,2012
+Jenson Button,McLaren Formula 1 Team,British,217,1,5,20,2,5,538,8,18,4,2,2012
+Kimi Räikkönen,Alpine F1 Team,Finnish,144,0,2,20,2,6,247,0,3,5,4,2012
+Felipe Massa,Scuderia Ferrari,Brazilian,133,0,3,20,4,7,378,2,10,4,3,2012
+Nico Rosberg,Mercedes-AMG PETRONAS,German,119,1,2,20,0,8,174,1,2,2,5,2012
+Romain Grosjean,Alpine F1 Team,French,103,0,1,20,3,9,247,0,3,5,4,2012
+Michael Schumacher,Mercedes-AMG PETRONAS,International,55,0,0,20,2,10,174,1,2,2,5,2012
+Sergio Perez,Stake F1 Team Kick Sauber,Mexican,17,0,0,20,3,11,18,0,0,6,7,2012
+Nico Hülkenberg,Aston Martin Aramco,German,12,0,0,20,1,12,21,0,0,3,6,2012
+Paul di Resta,Aston Martin Aramco,International,9,0,0,20,2,13,21,0,0,3,6,2012
+Jean-Éric Vergne,Visa Cash App RB,International,5,0,0,20,3,14,7,0,0,7,8,2012
+Daniel Ricciardo,Visa Cash App RB,Australian,2,0,0,20,4,15,7,0,0,7,8,2012
+Bruno Senna,Williams Racing,International,1,0,0,20,1,16,1,0,0,3,9,2012
+Kamui Kobayashi,Stake F1 Team Kick Sauber,International,1,0,0,20,3,17,18,0,0,6,7,2012
+Heikki Kovalainen,Haas F1 Team,International,0,0,0,20,3,18,0,0,0,6,10,2012
+Jarno Trulli,Haas F1 Team,International,0,0,0,20,3,19,0,0,0,6,10,2012
+Pastor Maldonado,Williams Racing,International,0,0,0,20,2,20,1,0,0,3,9,2012
+Sebastian Vettel,Red Bull Racing,German,413,13,16,19,0,1,628,16,22,3,1,2013
+Mark Webber,Red Bull Racing,Australian,215,3,6,19,3,2,628,16,22,3,1,2013
+Jenson Button,McLaren Formula 1 Team,British,215,2,9,19,2,3,347,2,13,8,2,2013
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,210,1,7,19,1,4,312,1,9,4,4,2013
+Fernando Alonso,Scuderia Ferrari,Spanish,177,0,5,19,3,5,327,0,6,4,3,2013
+Kimi Räikkönen,Alpine F1 Team,Finnish,162,0,5,19,1,6,257,0,7,3,5,2013
+Felipe Massa,Scuderia Ferrari,Brazilian,150,0,1,19,1,7,327,0,6,4,3,2013
+Sergio Perez,McLaren Formula 1 Team,Mexican,132,0,4,19,6,8,347,2,13,8,2,2013
+Nico Rosberg,Mercedes-AMG PETRONAS,German,102,0,2,19,3,9,312,1,9,4,4,2013
+Romain Grosjean,Alpine F1 Team,French,95,0,2,19,2,10,257,0,7,3,5,2013
+Nico Hülkenberg,Aston Martin Aramco,German,13,0,0,19,2,11,18,0,0,4,7,2013
+Nico Hülkenberg,Stake F1 Team Kick Sauber,German,10,0,0,19,2,12,19,0,0,4,6,2013
+Kamui Kobayashi,Stake F1 Team Kick Sauber,International,9,0,0,19,2,13,19,0,0,4,6,2013
+Valtteri Bottas,Williams Racing,Finnish,6,0,0,19,1,14,6,0,0,1,8,2013
+Paul di Resta,Aston Martin Aramco,International,5,0,0,19,2,15,18,0,0,4,7,2013
+Daniel Ricciardo,Visa Cash App RB,Australian,4,0,0,19,2,16,5,0,0,4,9,2013
+Jean-Éric Vergne,Visa Cash App RB,International,1,0,0,19,2,17,5,0,0,4,9,2013
+Heikki Kovalainen,Haas F1 Team,International,0,0,0,19,2,18,0,0,0,4,10,2013
+Jarno Trulli,Haas F1 Team,International,0,0,0,19,2,19,0,0,0,4,10,2013
+Pastor Maldonado,Williams Racing,International,0,0,0,19,0,20,6,0,0,1,8,2013
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,406,13,18,19,1,1,716,17,31,2,1,2014
+Nico Rosberg,Mercedes-AMG PETRONAS,German,310,4,13,19,1,2,716,17,31,2,1,2014
+Fernando Alonso,Scuderia Ferrari,Spanish,264,1,9,19,0,3,445,1,15,4,3,2014
+Sebastian Vettel,Red Bull Racing,German,251,1,7,19,0,4,457,1,11,0,2,2014
+Daniel Ricciardo,Red Bull Racing,Australian,206,0,4,19,0,5,457,1,11,0,2,2014
+Kimi Räikkönen,Scuderia Ferrari,Finnish,181,0,6,19,4,6,445,1,15,4,3,2014
+Sergio Perez,Aston Martin Aramco,Mexican,60,0,0,19,1,7,87,0,0,3,4,2014
+Jenson Button,McLaren Formula 1 Team,British,53,0,0,19,3,8,74,0,0,5,5,2014
+Valtteri Bottas,Williams Racing,Finnish,32,0,0,19,1,9,62,0,0,2,6,2014
+Felipe Massa,Williams Racing,Brazilian,30,0,0,19,1,10,62,0,0,2,6,2014
+Nico Hülkenberg,Aston Martin Aramco,German,27,0,0,19,2,11,87,0,0,3,4,2014
+Romain Grosjean,Alpine F1 Team,French,26,0,0,19,4,12,50,0,0,8,7,2014
+Pastor Maldonado,Alpine F1 Team,International,24,0,0,19,4,13,50,0,0,8,7,2014
+Kevin Magnussen,McLaren Formula 1 Team,Danish,21,0,0,19,2,14,74,0,0,5,5,2014
+Carlos Sainz,Visa Cash App RB,Spanish,16,0,0,19,2,15,16,0,0,6,8,2014
+Esteban Gutiérrez,Haas F1 Team,International,6,0,0,19,4,16,6,0,0,7,9,2014
+Felipe Nasr,Stake F1 Team Kick Sauber,International,6,0,0,19,0,17,6,0,0,1,10,2014
+Alexander Rossi,Haas F1 Team,International,0,0,0,19,3,18,6,0,0,7,9,2014
+Daniil Kvyat,Visa Cash App RB,Russian,0,0,0,19,4,19,16,0,0,6,8,2014
+Marcus Ericsson,Stake F1 Team Kick Sauber,Swedish,0,0,0,19,1,20,6,0,0,1,10,2014
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,377,11,17,19,2,1,673,14,31,4,1,2015
+Sebastian Vettel,Scuderia Ferrari,German,304,4,10,19,0,2,542,5,18,0,2,2015
+Nico Rosberg,Mercedes-AMG PETRONAS,German,296,3,14,19,2,3,673,14,31,4,1,2015
+Kimi Räikkönen,Scuderia Ferrari,Finnish,238,1,8,19,0,4,542,5,18,0,2,2015
+Daniel Ricciardo,Red Bull Racing,Australian,174,0,4,19,2,5,307,0,6,5,3,2015
+Daniil Kvyat,Red Bull Racing,Russian,133,0,2,19,3,6,307,0,6,5,3,2015
+Fernando Alonso,McLaren Formula 1 Team,Spanish,83,0,1,19,1,7,129,0,1,3,4,2015
+Nico Hülkenberg,Aston Martin Aramco,German,68,0,0,19,2,8,123,0,0,5,5,2015
+Sergio Perez,Aston Martin Aramco,Mexican,55,0,0,19,3,9,123,0,0,5,5,2015
+Jenson Button,McLaren Formula 1 Team,British,46,0,0,19,2,10,129,0,1,3,4,2015
+Max Verstappen,Visa Cash App RB,Dutch,44,0,0,19,6,11,46,0,0,7,8,2015
+Pastor Maldonado,Alpine F1 Team,International,37,0,0,19,2,12,50,0,0,6,6,2015
+Valtteri Bottas,Williams Racing,Finnish,35,0,1,19,3,13,49,0,1,7,7,2015
+Felipe Massa,Williams Racing,Brazilian,14,0,0,19,4,14,49,0,1,7,7,2015
+Romain Grosjean,Alpine F1 Team,French,13,0,0,19,4,15,50,0,0,6,6,2015
+Daniil Kvyat,Visa Cash App RB,Russian,2,0,0,19,1,16,46,0,0,7,8,2015
+Alexander Rossi,Haas F1 Team,International,0,0,0,19,3,17,0,0,0,7,9,2015
+Esteban Gutiérrez,Haas F1 Team,International,0,0,0,19,4,18,0,0,0,7,9,2015
+Felipe Nasr,Stake F1 Team Kick Sauber,International,0,0,0,19,1,19,0,0,0,3,10,2015
+Marcus Ericsson,Stake F1 Team Kick Sauber,Swedish,0,0,0,19,2,20,0,0,0,3,10,2015
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,370,9,16,19,1,1,723,17,30,1,1,2016
+Nico Rosberg,Mercedes-AMG PETRONAS,German,353,8,14,19,0,2,723,17,30,1,1,2016
+Max Verstappen,Red Bull Racing,Dutch,273,1,12,19,1,3,464,1,16,2,2,2016
+Sebastian Vettel,Scuderia Ferrari,German,237,1,8,19,0,4,401,1,11,2,3,2016
+Daniel Ricciardo,Red Bull Racing,Australian,191,0,4,19,1,5,464,1,16,2,2,2016
+Kimi Räikkönen,Scuderia Ferrari,Finnish,164,0,3,19,2,6,401,1,11,2,3,2016
+Jenson Button,McLaren Formula 1 Team,British,69,0,0,19,0,7,133,0,0,2,4,2016
+Fernando Alonso,McLaren Formula 1 Team,Spanish,64,0,0,19,2,8,133,0,0,2,4,2016
+Sergio Perez,Aston Martin Aramco,Mexican,63,0,0,19,2,9,123,0,0,3,5,2016
+Nico Hülkenberg,Aston Martin Aramco,German,60,0,0,19,1,10,123,0,0,3,5,2016
+Romain Grosjean,Alpine F1 Team,French,16,0,0,19,4,11,28,0,0,11,6,2016
+Felipe Massa,Williams Racing,Brazilian,14,0,0,19,3,12,23,0,0,6,8,2016
+Carlos Sainz,Visa Cash App RB,Spanish,12,0,0,19,3,13,24,0,0,6,7,2016
+Daniil Kvyat,Visa Cash App RB,Russian,12,0,0,19,3,14,24,0,0,6,7,2016
+Pastor Maldonado,Alpine F1 Team,International,12,0,0,19,7,15,28,0,0,11,6,2016
+Valtteri Bottas,Williams Racing,Finnish,9,0,0,19,3,16,23,0,0,6,8,2016
+Felipe Nasr,Stake F1 Team Kick Sauber,International,0,0,0,19,4,17,0,0,0,4,10,2016
+Kevin Magnussen,Haas F1 Team,Danish,0,0,0,19,1,18,0,0,0,3,9,2016
+Marcus Ericsson,Stake F1 Team Kick Sauber,Swedish,0,0,0,19,0,19,0,0,0,4,10,2016
+Romain Grosjean,Haas F1 Team,French,0,0,0,19,2,20,0,0,0,3,9,2016
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,400,10,19,19,0,1,702,14,31,1,1,2017
+Valtteri Bottas,Mercedes-AMG PETRONAS,Finnish,302,4,12,19,1,2,702,14,31,1,1,2017
+Max Verstappen,Red Bull Racing,Dutch,249,3,10,19,4,3,439,4,15,8,2,2017
+Sebastian Vettel,Scuderia Ferrari,German,207,0,6,19,2,4,396,1,10,4,3,2017
+Daniel Ricciardo,Red Bull Racing,Australian,190,1,5,19,4,5,439,4,15,8,2,2017
+Kimi Räikkönen,Scuderia Ferrari,Finnish,189,1,4,19,2,6,396,1,10,4,3,2017
+Fernando Alonso,McLaren Formula 1 Team,Spanish,100,0,1,19,2,7,112,0,1,4,5,2017
+Esteban Ocon,Aston Martin Aramco,French,59,0,0,19,4,8,113,0,0,6,4,2017
+Esteban Ocon,Alpine F1 Team,French,54,0,0,19,3,9,84,0,0,9,6,2017
+Sergio Perez,Aston Martin Aramco,Mexican,54,0,0,19,2,10,113,0,0,6,4,2017
+Felipe Massa,Williams Racing,Brazilian,33,0,0,19,2,11,61,0,0,3,7,2017
+Nico Hülkenberg,Alpine F1 Team,German,30,0,0,19,6,12,84,0,0,9,6,2017
+Lance Stroll,Williams Racing,Canadian,28,0,0,19,1,13,61,0,0,3,7,2017
+Stoffel Vandoorne,McLaren Formula 1 Team,International,12,0,0,19,2,14,112,0,1,4,5,2017
+Pierre Gasly,Visa Cash App RB,French,8,0,0,19,0,15,8,0,0,1,8,2017
+Kevin Magnussen,Haas F1 Team,Danish,4,0,0,19,2,16,4,0,0,6,9,2017
+Antonio Giovinazzi,Stake F1 Team Kick Sauber,International,0,0,0,19,0,17,0,0,0,1,10,2017
+Daniil Kvyat,Visa Cash App RB,Russian,0,0,0,19,1,18,8,0,0,1,8,2017
+Marcus Ericsson,Stake F1 Team Kick Sauber,Swedish,0,0,0,19,1,19,0,0,0,1,10,2017
+Romain Grosjean,Haas F1 Team,French,0,0,0,19,4,20,4,0,0,6,9,2017
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,434,14,19,20,1,1,732,17,31,1,1,2018
+Valtteri Bottas,Mercedes-AMG PETRONAS,Finnish,298,3,12,20,0,2,732,17,31,1,1,2018
+Max Verstappen,Red Bull Racing,Dutch,264,2,12,20,4,3,404,2,15,9,3,2018
+Sebastian Vettel,Scuderia Ferrari,German,234,0,6,20,1,4,454,1,12,2,2,2018
+Kimi Räikkönen,Scuderia Ferrari,Finnish,220,1,6,20,1,5,454,1,12,2,2,2018
+Daniel Ricciardo,Red Bull Racing,Australian,140,0,3,20,5,6,404,2,15,9,3,2018
+Sergio Perez,Aston Martin Aramco,Mexican,106,0,1,20,0,7,155,0,1,2,4,2018
+Fernando Alonso,McLaren Formula 1 Team,Spanish,78,0,1,20,2,8,101,0,1,4,6,2018
+Carlos Sainz,Alpine F1 Team,Spanish,68,0,0,20,3,9,110,0,0,5,5,2018
+Esteban Ocon,Aston Martin Aramco,French,49,0,0,20,2,10,155,0,1,2,4,2018
+Nico Hülkenberg,Alpine F1 Team,German,42,0,0,20,2,11,110,0,0,5,5,2018
+Felipe Massa,Williams Racing,Brazilian,23,0,0,20,2,12,27,0,0,5,8,2018
+Stoffel Vandoorne,McLaren Formula 1 Team,International,23,0,0,20,2,13,101,0,1,4,6,2018
+Pierre Gasly,Visa Cash App RB,French,20,0,0,20,4,14,29,0,0,7,7,2018
+Daniil Kvyat,Visa Cash App RB,Russian,9,0,0,20,3,15,29,0,0,7,7,2018
+Kevin Magnussen,Haas F1 Team,Danish,4,0,0,20,3,16,6,0,0,3,9,2018
+Lance Stroll,Williams Racing,Canadian,4,0,0,20,3,17,27,0,0,5,8,2018
+Charles Leclerc,Stake F1 Team Kick Sauber,Monegasque,2,0,0,20,5,18,2,0,0,6,10,2018
+Romain Grosjean,Haas F1 Team,French,2,0,0,20,0,19,6,0,0,3,9,2018
+Marcus Ericsson,Stake F1 Team Kick Sauber,Swedish,0,0,0,20,1,20,2,0,0,6,10,2018
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,329,7,14,20,3,1,640,11,29,5,1,2019
+Valtteri Bottas,Mercedes-AMG PETRONAS,Finnish,311,4,15,20,2,2,640,11,29,5,1,2019
+Charles Leclerc,Scuderia Ferrari,Monegasque,278,5,8,20,2,3,546,7,18,2,2,2019
+Sebastian Vettel,Scuderia Ferrari,German,268,2,10,20,0,4,546,7,18,2,2,2019
+Max Verstappen,Red Bull Racing,Dutch,259,2,10,20,2,5,436,2,13,3,3,2019
+Pierre Gasly,Red Bull Racing,French,177,0,3,20,1,6,436,2,13,3,3,2019
+Daniel Ricciardo,Alpine F1 Team,Australian,71,0,0,20,2,7,99,0,0,5,5,2019
+Carlos Sainz,McLaren Formula 1 Team,Spanish,70,0,0,20,2,8,125,0,0,4,4,2019
+George Russell,Williams Racing,British,63,0,0,20,3,9,63,0,0,3,7,2019
+Sergio Perez,Aston Martin Aramco,Mexican,61,0,0,20,4,10,88,0,0,7,6,2019
+Lando Norris,McLaren Formula 1 Team,British,55,0,0,20,2,11,125,0,0,4,4,2019
+Esteban Ocon,Alpine F1 Team,French,28,0,0,20,3,12,99,0,0,5,5,2019
+Lance Stroll,Aston Martin Aramco,Canadian,27,0,0,20,3,13,88,0,0,7,6,2019
+Romain Grosjean,Haas F1 Team,French,12,0,0,20,2,14,13,0,0,2,8,2019
+Pierre Gasly,Visa Cash App RB,French,8,0,0,20,3,15,10,0,0,6,9,2019
+Daniil Kvyat,Visa Cash App RB,Russian,2,0,0,20,3,16,10,0,0,6,9,2019
+Kevin Magnussen,Haas F1 Team,Danish,1,0,0,20,0,17,13,0,0,2,8,2019
+Antonio Giovinazzi,Stake F1 Team Kick Sauber,International,0,0,0,20,1,18,0,0,0,4,10,2019
+Kimi Räikkönen,Stake F1 Team Kick Sauber,Finnish,0,0,0,20,3,19,0,0,0,4,10,2019
+Robert Kubica,Williams Racing,International,0,0,0,2,0,20,63,0,0,3,7,2019
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,359,10,15,17,0,1,636,13,28,1,1,2020
+Valtteri Bottas,Mercedes-AMG PETRONAS,Finnish,277,3,13,17,1,2,636,13,28,1,1,2020
+Max Verstappen,Red Bull Racing,Dutch,233,3,10,17,3,3,352,3,11,6,3,2020
+Charles Leclerc,Scuderia Ferrari,Monegasque,189,1,5,17,2,4,365,1,11,6,2,2020
+Sebastian Vettel,Scuderia Ferrari,German,176,0,6,17,4,5,365,1,11,6,2,2020
+Alexander Albon,Red Bull Racing,Thai,119,0,1,17,3,6,352,3,11,6,3,2020
+Lando Norris,McLaren Formula 1 Team,British,90,0,1,17,1,7,136,0,1,3,4,2020
+Daniel Ricciardo,Alpine F1 Team,Australian,55,0,0,17,1,8,82,0,0,2,5,2020
+George Russell,Williams Racing,British,49,0,0,17,0,9,49,0,0,0,7,2020
+Carlos Sainz,McLaren Formula 1 Team,Spanish,46,0,0,17,2,10,136,0,1,3,4,2020
+Lance Stroll,Aston Martin Aramco,Canadian,39,0,0,17,1,11,77,0,0,4,6,2020
+Sergio Perez,Aston Martin Aramco,Mexican,38,0,0,17,3,12,77,0,0,4,6,2020
+Esteban Ocon,Alpine F1 Team,French,27,0,0,17,1,13,82,0,0,2,5,2020
+Pierre Gasly,Visa Cash App RB,French,16,0,0,17,2,14,16,0,0,3,8,2020
+Kimi Räikkönen,Stake F1 Team Kick Sauber,Finnish,3,0,0,17,0,15,3,0,0,1,9,2020
+Kevin Magnussen,Haas F1 Team,Danish,1,0,0,17,2,16,1,0,0,4,10,2020
+Antonio Giovinazzi,Stake F1 Team Kick Sauber,International,0,0,0,17,1,17,3,0,0,1,9,2020
+Daniil Kvyat,Visa Cash App RB,Russian,0,0,0,17,1,18,16,0,0,3,8,2020
+Romain Grosjean,Haas F1 Team,French,0,0,0,17,2,19,1,0,0,4,10,2020
+Max Verstappen,Red Bull Racing,Dutch,385,10,15,20,0,1,660,12,27,1,1,2021
+Sergio Perez,Red Bull Racing,Mexican,275,2,12,20,1,2,660,12,27,1,1,2021
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,250,2,11,20,1,3,414,2,14,3,2,2021
+Charles Leclerc,Scuderia Ferrari,Monegasque,219,3,6,20,2,4,396,4,11,5,3,2021
+Lando Norris,McLaren Formula 1 Team,British,185,2,5,20,1,5,316,2,6,2,4,2021
+Carlos Sainz,Scuderia Ferrari,Spanish,177,1,5,20,3,6,396,4,11,5,3,2021
+Valtteri Bottas,Mercedes-AMG PETRONAS,Finnish,164,0,3,20,2,7,414,2,14,3,2,2021
+Daniel Ricciardo,McLaren Formula 1 Team,Australian,131,0,1,20,1,8,316,2,6,2,4,2021
+Sebastian Vettel,Aston Martin Aramco,German,127,0,2,20,3,9,160,0,2,4,5,2021
+Fernando Alonso,Alpine F1 Team,Spanish,43,0,0,20,3,10,68,0,0,3,6,2021
+Lance Stroll,Aston Martin Aramco,Canadian,33,0,0,20,1,11,160,0,2,4,5,2021
+Esteban Ocon,Alpine F1 Team,French,25,0,0,20,0,12,68,0,0,3,6,2021
+George Russell,Williams Racing,British,5,0,0,20,1,13,5,0,0,1,7,2021
+Kevin Magnussen,Haas F1 Team,Danish,1,0,0,20,1,14,1,0,0,4,8,2021
+Kimi Räikkönen,Stake F1 Team Kick Sauber,Finnish,0,0,0,20,3,15,0,0,0,8,9,2021
+Mick Schumacher,Haas F1 Team,International,0,0,0,20,3,16,1,0,0,4,8,2021
+Pierre Gasly,Visa Cash App RB,French,0,0,0,20,3,17,0,0,0,5,10,2021
+Yuki Tsunoda,Visa Cash App RB,Japanese,0,0,0,20,2,18,0,0,0,5,10,2021
+Zhou Guanyu,Stake F1 Team Kick Sauber,Chinese,0,0,0,20,5,19,0,0,0,8,9,2021
+Max Verstappen,Red Bull Racing,Dutch,424,13,19,20,1,1,610,13,27,7,1,2022
+Charles Leclerc,Scuderia Ferrari,Monegasque,288,2,11,20,1,2,483,3,15,2,2,2022
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,260,4,12,20,4,3,415,4,13,7,3,2022
+Carlos Sainz,Scuderia Ferrari,Spanish,195,1,4,20,1,4,483,3,15,2,2,2022
+Sergio Perez,Red Bull Racing,Mexican,186,0,8,20,6,5,610,13,27,7,1,2022
+Sebastian Vettel,Aston Martin Aramco,German,176,0,3,20,2,6,210,0,3,4,5,2022
+George Russell,Mercedes-AMG PETRONAS,British,155,0,1,20,3,7,415,4,13,7,3,2022
+Lando Norris,McLaren Formula 1 Team,British,116,0,2,20,2,8,215,0,2,6,4,2022
+Daniel Ricciardo,McLaren Formula 1 Team,Australian,99,0,0,20,4,9,215,0,2,6,4,2022
+Fernando Alonso,Alpine F1 Team,Spanish,50,0,0,20,3,10,75,0,0,3,6,2022
+Lance Stroll,Aston Martin Aramco,Canadian,34,0,0,20,2,11,210,0,3,4,5,2022
+Esteban Ocon,Alpine F1 Team,French,25,0,0,20,0,12,75,0,0,3,6,2022
+Pierre Gasly,Visa Cash App RB,French,6,0,0,20,2,13,9,0,0,4,7,2022
+Yuki Tsunoda,Visa Cash App RB,Japanese,3,0,0,20,2,14,9,0,0,4,7,2022
+Valtteri Bottas,Stake F1 Team Kick Sauber,Finnish,2,0,0,20,2,15,2,0,0,5,8,2022
+Alexander Albon,Williams Racing,Thai,1,0,0,20,1,16,1,0,0,1,9,2022
+Kevin Magnussen,Haas F1 Team,Danish,0,0,0,20,3,17,0,0,0,3,10,2022
+Mick Schumacher,Haas F1 Team,International,0,0,0,20,0,18,0,0,0,3,10,2022
+Zhou Guanyu,Stake F1 Team Kick Sauber,Chinese,0,0,0,20,3,19,2,0,0,5,8,2022
+Max Verstappen,Red Bull Racing,Dutch,353,11,15,21,5,1,593,13,23,7,1,2023
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,279,4,8,21,2,2,479,4,12,3,3,2023
+Charles Leclerc,Scuderia Ferrari,Monegasque,268,1,12,21,0,3,513,3,22,2,2,2023
+Carlos Sainz,Scuderia Ferrari,Spanish,245,2,10,21,2,4,513,3,22,2,2,2023
+Sergio Perez,Red Bull Racing,Mexican,240,2,8,21,2,5,593,13,23,7,1,2023
+George Russell,Mercedes-AMG PETRONAS,British,200,0,4,21,1,6,479,4,12,3,3,2023
+Fernando Alonso,Aston Martin Aramco,Spanish,168,1,3,21,0,7,215,1,3,2,5,2023
+Oscar Piastri,McLaren Formula 1 Team,Australian,126,0,2,21,5,8,249,0,3,8,4,2023
+Lando Norris,McLaren Formula 1 Team,British,123,0,1,21,3,9,249,0,3,8,4,2023
+Lance Stroll,Aston Martin Aramco,Canadian,47,0,0,21,2,10,215,1,3,2,5,2023
+Esteban Ocon,Alpine F1 Team,French,32,0,0,21,1,11,61,0,0,4,6,2023
+Pierre Gasly,Alpine F1 Team,French,29,0,0,21,3,12,61,0,0,4,6,2023
+Daniel Ricciardo,Visa Cash App RB,Australian,6,0,0,21,1,13,7,0,0,4,7,2023
+Zhou Guanyu,Stake F1 Team Kick Sauber,Chinese,3,0,0,21,1,14,4,0,0,5,8,2023
+Valtteri Bottas,Stake F1 Team Kick Sauber,Finnish,1,0,0,21,4,15,4,0,0,5,8,2023
+Yuki Tsunoda,Visa Cash App RB,Japanese,1,0,0,21,3,16,7,0,0,4,7,2023
+Alexander Albon,Williams Racing,Thai,0,0,0,21,2,17,0,0,0,2,10,2023
+Kevin Magnussen,Haas F1 Team,Danish,0,0,0,21,3,18,0,0,0,8,9,2023
+Nico Hülkenberg,Haas F1 Team,German,0,0,0,21,5,19,0,0,0,8,9,2023
+Max Verstappen,Red Bull Racing,Dutch,326,5,15,21,3,1,462,5,16,7,3,2024
+Charles Leclerc,Scuderia Ferrari,Monegasque,282,2,10,21,0,2,535,4,20,3,1,2024
+Oscar Piastri,McLaren Formula 1 Team,Australian,273,3,9,21,1,3,485,6,15,3,2,2024
+Carlos Sainz,Scuderia Ferrari,Spanish,253,2,10,21,3,4,535,4,20,3,1,2024
+George Russell,Mercedes-AMG PETRONAS,British,249,4,5,21,2,5,446,6,12,8,4,2024
+Lando Norris,McLaren Formula 1 Team,British,212,3,6,21,2,6,485,6,15,3,2,2024
+Lewis Hamilton,Mercedes-AMG PETRONAS,British,197,2,7,21,6,7,446,6,12,8,4,2024
+Sergio Perez,Red Bull Racing,Mexican,136,0,1,21,4,8,462,5,16,7,3,2024
+Fernando Alonso,Aston Martin Aramco,Spanish,81,0,0,21,8,9,121,0,0,12,5,2024
+Lance Stroll,Aston Martin Aramco,Canadian,40,0,0,21,4,10,121,0,0,12,5,2024
+Yuki Tsunoda,Visa Cash App RB,Japanese,16,0,0,21,3,11,31,0,0,3,6,2024
+Liam Lawson,Visa Cash App RB,New Zealander,15,0,0,21,0,12,31,0,0,3,6,2024
+Alexander Albon,Williams Racing,Thai,13,0,0,21,5,13,21,0,0,7,7,2024
+Nico Hülkenberg,Haas F1 Team,German,9,0,0,21,1,14,9,0,0,1,9,2024
+Franco Colapinto,Williams Racing,Argentine,8,0,0,21,2,15,21,0,0,7,7,2024
+Pierre Gasly,Alpine F1 Team,French,8,0,0,21,1,16,11,0,0,2,8,2024
+Esteban Ocon,Alpine F1 Team,French,3,0,0,21,1,17,11,0,0,2,8,2024
+Valtteri Bottas,Stake F1 Team Kick Sauber,Finnish,0,0,0,21,1,18,0,0,0,3,10,2024
+Zhou Guanyu,Stake F1 Team Kick Sauber,Chinese,0,0,0,21,2,19,0,0,0,3,10,2024
+Max Verstappen,Red Bull Racing,Dutch,320,2,13,20,0,1,455,2,14,2,3,2025
+Lewis Hamilton,Scuderia Ferrari,British,285,6,12,20,4,2,526,7,23,6,2,2025
+Lando Norris,McLaren Formula 1 Team,British,275,5,9,20,3,3,540,10,19,6,1,2025
+Oscar Piastri,McLaren Formula 1 Team,Australian,265,5,10,20,3,4,540,10,19,6,1,2025
+Charles Leclerc,Scuderia Ferrari,Monegasque,241,1,11,20,2,5,526,7,23,6,2,2025
+George Russell,Mercedes-AMG PETRONAS,British,209,1,4,20,0,6,349,1,4,2,4,2025
+Andrea Kimi Antonelli,Mercedes-AMG PETRONAS,Italian,140,0,0,20,2,7,349,1,4,2,4,2025
+Liam Lawson,Red Bull Racing,New Zealander,135,0,1,20,2,8,455,2,14,2,3,2025
+Fernando Alonso,Aston Martin Aramco,Spanish,58,0,0,20,1,9,95,0,0,3,5,2025
+Lance Stroll,Aston Martin Aramco,Canadian,37,0,0,20,2,10,95,0,0,3,5,2025
+Liam Lawson,Visa Cash App RB,New Zealander,14,0,0,20,0,11,21,0,0,2,6,2025
+Pierre Gasly,Alpine F1 Team,French,11,0,0,20,5,12,11,0,0,7,8,2025
+Carlos Sainz,Williams Racing,Spanish,10,0,0,20,3,13,17,0,0,9,7,2025
+Alexander Albon,Williams Racing,Thai,7,0,0,20,6,14,17,0,0,9,7,2025
+Yuki Tsunoda,Visa Cash App RB,Japanese,7,0,0,20,2,15,21,0,0,2,6,2025
+Esteban Ocon,Haas F1 Team,French,6,0,0,20,4,16,6,0,0,4,9,2025
+Gabriel Bortoleto,Stake F1 Team Kick Sauber,International,0,0,0,20,1,17,0,0,0,3,10,2025
+Jack Doohan,Alpine F1 Team,International,0,0,0,20,2,18,11,0,0,7,8,2025
+Nico Hülkenberg,Stake F1 Team Kick Sauber,German,0,0,0,20,2,19,0,0,0,3,10,2025
+Max Verstappen,Red Bull Racing,Dutch,295,3,12,19,0,1,432,4,14,2,3,2026
+Oscar Piastri,McLaren Formula 1 Team,Australian,270,4,10,19,1,2,502,8,17,4,2,2026
+Charles Leclerc,Scuderia Ferrari,Monegasque,254,3,12,19,3,3,505,6,20,4,1,2026
+Lewis Hamilton,Scuderia Ferrari,British,251,3,8,19,1,4,505,6,20,4,1,2026
+Lando Norris,McLaren Formula 1 Team,British,232,4,7,19,3,5,502,8,17,4,2,2026
+George Russell,Mercedes-AMG PETRONAS,British,175,0,4,19,1,6,287,0,5,4,4,2026
+Liam Lawson,Red Bull Racing,New Zealander,137,1,2,19,2,7,432,4,14,2,3,2026
+Fernando Alonso,Aston Martin Aramco,Spanish,115,1,1,19,1,8,136,1,1,3,5,2026
+Andrea Kimi Antonelli,Mercedes-AMG PETRONAS,Italian,112,0,1,19,3,9,287,0,5,4,4,2026
+Lance Stroll,Aston Martin Aramco,Canadian,21,0,0,19,2,10,136,1,1,3,5,2026
+Pierre Gasly,Alpine F1 Team,French,16,0,0,19,2,11,18,0,0,5,7,2026
+Carlos Sainz,Williams Racing,Spanish,14,0,0,19,3,12,21,0,0,8,6,2026
+Liam Lawson,Visa Cash App RB,New Zealander,11,0,0,19,1,13,16,0,0,5,8,2026
+Alexander Albon,Williams Racing,Thai,7,0,0,19,5,14,21,0,0,8,6,2026
+Yuki Tsunoda,Visa Cash App RB,Japanese,5,0,0,19,4,15,16,0,0,5,8,2026
+Jack Doohan,Alpine F1 Team,International,2,0,0,19,3,16,18,0,0,5,7,2026
+Esteban Ocon,Haas F1 Team,French,1,0,0,19,4,17,1,0,0,4,9,2026
+Gabriel Bortoleto,Stake F1 Team Kick Sauber,International,1,0,0,19,0,18,1,0,0,4,10,2026
+Nico Hülkenberg,Stake F1 Team Kick Sauber,German,0,0,0,19,4,19,1,0,0,4,10,2026

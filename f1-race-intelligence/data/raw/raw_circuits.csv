@@ -1,0 +1,30 @@
+circuit_id,circuit_name,location,country,latitude,longitude,circuit_type,track_length_km,turns,drs_zones,lap_record_time,lap_record_driver,lap_record_year
+monza,Autodromo Nazionale Monza,Monza,Italy,45.6156,9.2811,Permanent,5.793,11,2,1:21.046,Rubens Barrichello,2004
+silverstone,Silverstone Circuit,Silverstone,United Kingdom,52.0786,-1.0169,Permanent,5.891,18,2,1:27.097,Max Verstappen,2020
+spa,Circuit de Spa-Francorchamps,Spa-Francorchamps,Belgium,50.4372,5.9714,Permanent,7.004,19,2,1:46.286,Valtteri Bottas,2018
+monaco,Circuit de Monaco,Monte Carlo,Monaco,43.7347,7.4206,Street,3.337,19,1,1:12.909,Lewis Hamilton,2021
+suzuka,Suzuka International Racing Course,Suzuka,Japan,34.8431,136.541,Permanent,5.807,18,1,1:30.983,Lewis Hamilton,2019
+interlagos,Autódromo José Carlos Pace,São Paulo,Brazil,-23.7036,-46.6997,Permanent,4.309,15,2,1:10.540,Valtteri Bottas,2018
+red_bull_ring,Red Bull Ring,Spielberg,Austria,47.2197,14.7647,Permanent,4.318,10,3,1:05.619,Carlos Sainz,2020
+catalunya,Circuit de Barcelona-Catalunya,Montmeló,Spain,41.57,2.2611,Permanent,4.657,14,2,1:16.330,Max Verstappen,2023
+bahrain,Bahrain International Circuit,Sakhir,Bahrain,26.0325,50.5106,Permanent,5.412,15,3,1:31.447,Pedro de la Rosa,2005
+yas_marina,Yas Marina Circuit,Abu Dhabi,United Arab Emirates,24.4672,54.6031,Permanent,5.281,16,2,1:26.103,Max Verstappen,2021
+cota,Circuit of the Americas,Austin,United States,30.1328,-97.6411,Permanent,5.513,20,2,1:36.169,Charles Leclerc,2019
+marina_bay,Marina Bay Street Circuit,Marina Bay,Singapore,1.2914,103.864,Street,4.94,19,4,1:35.867,Lewis Hamilton,2023
+villeneuve,Circuit Gilles-Villeneuve,Montreal,Canada,45.5,-73.5228,Semi-Permanent,4.361,14,2,1:13.078,Valtteri Bottas,2019
+hungaroring,Hungaroring,Mogyoród,Hungary,47.5789,19.2486,Permanent,4.381,14,2,1:16.627,Lewis Hamilton,2020
+zandvoort,Circuit Zandvoort,Zandvoort,Netherlands,52.3888,4.5409,Permanent,4.259,14,2,1:11.097,Lewis Hamilton,2021
+albert_park,Albert Park Circuit,Melbourne,Australia,-37.8497,144.968,Semi-Permanent,5.278,14,4,1:19.813,Charles Leclerc,2024
+baku,Baku City Circuit,Baku,Azerbaijan,40.3725,49.8533,Street,6.003,20,2,1:43.009,Charles Leclerc,2019
+lusail,Lusail International Circuit,Lusail,Qatar,25.49,51.4542,Permanent,5.419,16,1,1:24.319,Max Verstappen,2023
+jeddah,Jeddah Corniche Circuit,Jeddah,Saudi Arabia,21.6319,39.1044,Street,6.174,27,3,1:30.734,Lewis Hamilton,2021
+miami,Miami International Autodrome,Miami Gardens,United States,25.9581,-80.2389,Street,5.412,19,3,1:29.708,Max Verstappen,2023
+las_vegas,Las Vegas Strip Circuit,Las Vegas,United States,36.1147,-115.1728,Street,6.201,17,2,1:35.490,Oscar Piastri,2023
+shanghai,Shanghai International Circuit,Shanghai,China,31.3389,121.22,Permanent,5.451,16,2,1:32.238,Michael Schumacher,2004
+rodriguez,Autódromo Hermanos Rodríguez,Mexico City,Mexico,19.4042,-99.0907,Permanent,4.304,17,3,1:17.774,Valtteri Bottas,2021
+istanbul,Intercity Istanbul Park,Istanbul,Turkey,40.9517,29.405,Permanent,5.338,14,2,1:24.770,Juan Pablo Montoya,2005
+sepang,Sepang International Circuit,Sepang,Malaysia,2.7608,101.738,Permanent,5.543,15,2,1:34.080,Sebastian Vettel,2017
+sochi,Sochi Autodrom,Sochi,Russia,43.4057,39.9578,Permanent,5.848,18,2,1:35.761,Lewis Hamilton,2019
+hockenheim,Hockenheimring,Hockenheim,Germany,49.3278,8.5658,Permanent,4.574,17,3,1:13.780,Kimi Räikkönen,2004
+nurburgring,Nürburgring GP-Strecke,Nürburg,Germany,50.3356,6.9475,Permanent,5.148,15,2,1:28.139,Max Verstappen,2020
+mugello,Autodromo Internazionale del Mugello,Scarperia e San Piero,Italy,43.9975,11.3714,Permanent,5.245,15,1,1:18.833,Lewis Hamilton,2020
